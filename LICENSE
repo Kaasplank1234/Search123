@@ -1,0 +1,206 @@
+GNU AFFERO GENERAL PUBLIC LICENSE
+                       Version 3, 19 November 2007
+
+ Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+                            Preamble
+
+  The GNU Affero General Public License is a free, copyleft license for
+software and other kinds of works, specifically designed to ensure
+cooperation with the community in the case of network server software.
+
+  The licenses for most software and other practical works are designed
+to take away your freedom to share and change the works.  By contrast,
+the GNU Affero General Public License is intended to guarantee your
+freedom to share and change all versions of a program--to make sure it
+remains free software for all its users.
+
+  When we speak of free software, we are referring to freedom, not
+price.  Our General Public Licenses are designed to make sure that you
+have the freedom to distribute copies of free software (and charge for
+them if you wish), that you receive source code or can get it, that you
+can change the software or use pieces of it in new free programs, and
+that you know you can do these things.
+
+  Developers that use our General Public Licenses protect your rights
+with two steps: (1) assert copyright on the software, and (2) offer
+you this License which gives you legal permission to copy, distribute
+and/or modify it.
+
+  A secondary benefit of defending all users' freedom is that
+improvements made in alternate versions of the program, if they
+receive widespread use, become available for the other developers to
+incorporate.  Many developers of free software are heartened and
+encouraged by the cooperation that results from this perspective.
+
+  The precise terms and conditions for copying, distribution and
+modification follow.
+
+                       TERMS AND CONDITIONS
+
+  0. Definitions.
+
+  "This License" refers to version 3 of the GNU Affero General Public License.
+
+  "Copyright" also means copyright-like laws that apply to other kinds of
+works, such as semiconductor masks.
+
+  "The Program" refers to any copyrightable work licensed under this
+License.  Each licensee is addressed as "you".
+
+  "Licensees" and "recipients" may be individual persons or organizations.
+
+  "To modify" a work means to copy from or adapt all or part of the work
+in a way requiring copyright permission, other than the making of an exact
+copy.  The resulting work is called a "modified version" of the earlier
+work or a "based on" the work.
+
+  "A covered work" means either the unmodified Program or a derivative
+work thereof under this License.
+
+  "To propagate" a work means to do anything with it that, without
+permission, would make you liable for direct or contributory patent
+infringement under applicable law, except executing it on a computer or
+modifying a private copy.  Propagation includes copying, distribution
+(with or without modification), with any requirement to pass on the same
+rights as the third parties who receive it.  Some jurisdictions do not
+allow such transfers, and in that case this clause is intended not to
+apply to them.
+
+  When the source code for a computer program is made available, it includes
+required for that derivative work, to be licensed as a whole at no charge to
+all third parties under the terms of this License.
+
+  "Source code" for a work means the preferred form of the work for making
+modifications to it.  "Object code" refers to any non-source form of a work.
+
+  "Standard Interface" refers to a major option, facility or characteristic
+of the common usage, or an interface declared by the author as "Standard"
+when used to indicate that users can invoke it.  Standard Interface includes,
+for instance, a module interface, the API-like functions, or the publicly
+declared methods and variables.  When you use the Standard Interface, you
+use the code which implements the Standard Interface to make your Program
+free software of the terms of this License.
+
+  "System Libraries" of an executable work include anything, other than the
+work as a whole, that (a) is included in the normal form of packaging a
+Major Component, but which is not part of that Major Component, and (b)
+serves only to enable use of the work with that Major Component, or to
+implement a Standard Interface for which an implementation is available to
+the public in source code form.  A "Major Component", in this case, means a
+major essential component (typical examples include, but are not limited to,
+kernel, window system, and so forth) of the specific operating system (if
+any) on which the executable work runs, or a compiler used to produce the
+work, or an object code interpreter used to run it.
+
+  "Corresponding Source" for a work in object code form means all the source
+code needed to generate, install, and (for an object code interpreter) run
+the object code and to modify the work, including scripts to control those
+activities.  However, by the exception of the source code distribution to
+all third parties under the terms of the GNU Affero General Public License
+with a name tag or known source code repository.
+
+  "Corresponding Source" includes any modifications of our source code and
+any copy of any library (including dynamic linking and compilation) used by
+the Program.
+
+  A copy of the "Corresponding Source" may be obtained by arrangement, at no
+charge beyond the cost of physically performing source transfer, in the form
+of a computer network download (provided that users already have access to
+download the copy).
+
+  Notwithstanding the other provision of this License, for material you add
+to a covered work, you may (if authorized by the copyright holders of that
+material) supplement the terms of this License with terms:
+
+    a) Disclaiming warranty or limiting liability differently from the
+    terms of sections 15 and 16 of this License; or
+
+    b) Requiring preservation of specified reasonable legal notices or
+    author attributions in that material or in the Corresponding
+    Source of such material; or
+
+    c) Prohibiting misrepresentation of the origin of that material, or
+    requiring that modified versions of such material be marked in
+    reasonable ways as different from the original version; or
+
+    d) Limiting the use for publicity purposes of names of licensors or
+    authors of the material; or
+
+    e) Declining to grant rights under trademark law for use of some
+    trade names, logos, or service marks; or
+
+    f) Requiring indemnification of licensors and authors of that
+    material by anyone who conveys the material (or modified versions of
+    it) with contractual assumptions of liability to the recipient, for
+    any liability that these contractual assumptions directly impose on
+    those licensors and authors.
+
+  All other non-permissive additional terms are considered "further
+restrictions" within the meaning of section 10.  If the Program as you
+received it, or any part of it, contains a notice stating that it is
+governed by this License along with a term that is a further restriction,
+you may remove that term.  If a license document contains a further
+restriction but permits relicensing or conveying under this License, you may
+add to a covered work material governed by the terms of that license document,
+provided that the further restriction does not survive such relicensing or
+conveying.
+
+  If you add terms to a covered work in accord with this section, you must
+also make a corresponding change in the Corresponding Source, so that, taken
+together, they convey Conditions incompatible with section 7.  If the Program
+as you received it includes a notice stating that it is governed by this
+License along with a term that is a further restriction, and the user already
+has a copy of your work delivered to that Party, you may remove that term
+from Corresponding Source code delivered by you or provided to Party.
+
+  If the distribution and/or use of the Program is restricted in certain
+countries either by patents or by copyrighted interfaces, the original
+copyright holder who places the Program under this License may add an explicit
+geographical distribution limitation excluding those countries, so that
+distribution is permitted only in or among countries not thus excluded.  In
+such case, this License incorporates the limitation as if written in the body
+of this License.
+
+  The Free Software Foundation may publish revised and/or new versions of
+the GNU Affero General Public License from time to time.  Such new versions
+will be similar in spirit to the present version, but may differ in detail to
+address new problems or concerns.  Each version is given a distinguishing
+version number.  If the Program specifies that a version number of this
+License which "applies to it and any later versions", you have the option of
+following the terms and conditions either of that version or of any later
+version published by the Free Software Foundation.  If the Program does not
+specify a version number of this License, you may choose any version ever
+published by the Free Software Foundation.
+
+  If the Program specifies that a proxy can decide future versions of this
+License can be used, that proxy's public statement of acceptance of a version
+permanently authorizes you to choose that version for the Program.
+
+  Later license versions may give you additional or different permissions.
+However, no additional obligations are imposed on any author or licensor
+resulting from your election to follow a later version.
+
+  DISCLAIMER OF WARRANTIES.
+
+  THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
+APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
+HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY
+OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
+IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF
+ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+
+  LIMITATION OF LIABILITY.
+
+  IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS
+THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
+GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE
+OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR
+DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR
+A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), EVEN IF SUCH
+HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.

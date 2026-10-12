@@ -1,6 +1,6 @@
 # Search123
 
-Search123 is a privacy-conscious, SearXNG-inspired metasearch project designed to provide a clean, modern, and user-friendly public search experience. It is intended to serve as a simple but powerful alternative to centralized search engines.
+Search123 is a privacy-conscious, SearXNG-inspired metasearch project designed to provide a clean, modern, and user-friendly public search experience. It is intended to serve as a simple but powerful privacy-aware alternative to centralized search engines.
 
 Live project links:
 
@@ -9,11 +9,11 @@ Live project links:
 - Cheesy Studios website: https://www.cheesy-studios.22web.org/homepagina
 - Privacy Policy: https://cheesy-studios.tawk.help/article/hieronder-onze-uitgebreide-privacyverklaring
 
-This repository contains the official project documentation for Search123. The content below is written in English and is meant to provide a complete overview of the project, its architecture, its philosophy, and its deployment context.
+This repository contains the official project documentation for Search123. The content below is written in English and is meant to provide a complete overview of the project, its architecture, its operational model, and its relationship to the broader open-source ecosystem.
 
 ## Project Overview
 
-Search123 is a web search instance inspired by the principles of SearXNG, a well-known open-source metasearch engine. SearXNG focuses on privacy, aggregation, and decentralization in the search process.
+Search123 is a web search instance inspired by the principles of SearXNG, a well-known open-source metasearch engine. SearXNG focuses on privacy, aggregation, and decentralization in the search process. Rather than querying a single large search provider, a metasearch engine retrieves results from multiple sources and aggregates them into a single user-facing interface.
 
 The project is more than a simple search frontend. It represents an approach to public search that values:
 
@@ -26,7 +26,7 @@ The project is more than a simple search frontend. It represents an approach to 
 
 ## Why Search123 Exists
 
-The internet is dominated by a small number of highly centralized search services. While these services are highly functional, they are often associated with aggressive data collection, user profiling, and tracking practices that many users find concerning.
+The internet is dominated by a small number of highly centralized search services. While these services are highly functional, they are often associated with aggressive data collection, user profiling, and monetization of user behavior. Search123 was created to demonstrate that privacy-aware search is both technically viable and commercially practical.
 
 This project is intended to deliver an experience that is:
 
@@ -39,7 +39,7 @@ This project is intended to deliver an experience that is:
 
 ## Relationship to SearXNG
 
-Search123 is not a clone of SearXNG in the strictest sense, but it follows the same general design directions. SearXNG is known for combining search results from multiple upstream sources into one user-facing interface.
+Search123 is not a clone of SearXNG in the strictest sense, but it follows the same general design directions. SearXNG is known for combining search results from multiple upstream sources into one user interface. SearXNG is mature, well-maintained, and widely deployed.
 
 The domains in which Search123 aligns with SearXNG include:
 
@@ -52,9 +52,67 @@ The domains in which Search123 aligns with SearXNG include:
 
 This project is therefore best described as SearXNG-inspired rather than as a proprietary or closed search ecosystem.
 
+## License
+
+Search123 is licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**, the same license used by SearXNG. This ensures that any modifications or derivative works remain open-source and available to the community.
+
+See the [LICENSE](LICENSE) file for the full license text.
+
+## Credits
+
+Search123 builds upon the excellent work of the open-source community:
+
+- **Cheesy Studios** created and maintains the Search123 configuration, documentation, branding, and deployment setup.
+- **SearXNG** provides the underlying open-source metasearch engine that inspired this project. Learn more at [https://github.com/searxng/searxng](https://github.com/searxng/searxng).
+- Any third-party components and libraries remain under their respective licenses.
+
+For more details, see [CREDITS.md](CREDITS.md).
+
+## Contributing
+
+We welcome contributions to Search123! Whether you want to report bugs, suggest improvements, or contribute code, here's how:
+
+### Reporting Issues
+
+If you encounter a bug or have a feature request, please create a GitHub issue:
+
+1. Go to the [Issues](https://github.com/Kaasplank1234/Search123/issues) page
+2. Click "New Issue"
+3. Provide a clear description of the problem or suggestion
+4. Include any relevant details, screenshots, or error messages
+
+### Submitting Pull Requests
+
+To contribute code:
+
+1. Fork the repository
+2. Create a new branch for your feature or fix
+3. Make your changes and test them thoroughly
+4. Submit a pull request with a clear description of your changes
+5. Be patient and respectful during the review process
+
+### Areas for Contribution
+
+We're particularly interested in improvements in:
+
+- UI refinement and accessibility
+- Documentation improvements
+- Deployment guidance
+- Performance tuning
+- Security enhancements
+- Mobile responsiveness
+
+## Security
+
+If you discover a security vulnerability in Search123, please do **not** create a public GitHub issue. Instead, please report it privately:
+
+**Contact:** [https://www.cheesy-studios.22web.org/neem-contact-met-ons-op-faq](https://www.cheesy-studios.22web.org/neem-contact-met-ons-op-faq)
+
+For more information, see [SECURITY.md](SECURITY.md).
+
 ## Mission Statement
 
-The mission of Search123 is to provide a public, accessible, and privacy-aware web search experience that is simple to understand, easy to operate, and suitable for future development. The project should remain straightforward enough to maintain while delivering genuine utility to end users.
+The mission of Search123 is to provide a public, accessible, and privacy-aware web search experience that is simple to understand, easy to operate, and suitable for future development. The project reflects a commitment to open-source principles, community-driven development, and the belief that privacy and technology can coexist.
 
 ## Goals and Objectives
 
@@ -83,7 +141,7 @@ This allows users to access the project directly in a browser without local setu
 
 ### 2. Privacy-oriented approach
 
-The project follows a privacy-focused direction consistent with the broader SearXNG philosophy. Search123 is intended to be a practical, respectful, and transparent search platform. Detailed privacy responsibilities are documented in the official privacy policy.
+The project follows a privacy-focused direction consistent with the broader SearXNG philosophy. Search123 is intended to be a practical, respectful, and transparent search platform. Detailed privacy information is provided in the official privacy policy.
 
 For the official policy, see:
 
@@ -99,11 +157,11 @@ This gives maintainers an operational view of the service and helps detect downt
 
 ### 4. Clean and minimal interface
 
-The project emphasizes accessibility and a simple user experience. Instead of cluttering the page with heavy distractions or excessive UI layers, it aims to stay focused on the core task: searching the web efficiently.
+The project emphasizes accessibility and a simple user experience. Instead of cluttering the page with heavy distractions or excessive UI layers, it aims to stay focused on the core task: searching.
 
 ### 5. Metasearch architecture
 
-The platform is designed around the concept of aggregating results from multiple sources rather than locking users into a single provider. This is one of the principal benefits of the SearXNG philosophy and approach.
+The platform is designed around the concept of aggregating results from multiple sources rather than locking users into a single provider. This is one of the principal benefits of the SearXNG philosophy.
 
 ### 6. Maintainability
 
@@ -117,6 +175,7 @@ The following links are central to the public presence of Search123:
 - Uptime Monitoring: https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/
 - Cheesy Studios website: https://www.cheesy-studios.22web.org/homepagina
 - Privacy Policy: https://cheesy-studios.tawk.help/article/hieronder-onze-uitgebreide-privacyverklaring
+- GitHub Repository: https://github.com/Kaasplank1234/Search123
 
 ## Use Cases
 
@@ -148,7 +207,7 @@ The authoritative privacy policy is here:
 
 - https://cheesy-studios.tawk.help/article/hieronder-onze-uitgebreide-privacyverklaring
 
-This means that privacy-related questions, legal wording, data handling practices, and policy responsibilities should be reviewed in that document rather than repeated in a redundant or conflicting form in this repository.
+This means that privacy-related questions, legal wording, data handling practices, and policy responsibilities should be reviewed in that document rather than repeated in this repository.
 
 ## Operational Model
 
@@ -171,115 +230,6 @@ Typical operational tasks for this project include:
 - server log analysis
 - privacy and policy alignment reviews
 - maintenance of public-facing documentation
-
-## System Architecture
-
-Although this repository is not an exhaustive infrastructure specification, it is useful to understand the general design pattern behind the project.
-
-### 1. User-facing web layer
-
-This is the public interface where users enter keywords and receive results. It should be clean, responsive, and easy to navigate.
-
-### 2. Search query processing layer
-
-This layer handles user requests and prepares them for upstream search operations. It may also include filtering, normalization, or formatting logic.
-
-### 3. Metasearch aggregation layer
-
-This layer queries one or more external search providers and collects the results into a single output stream. This is the part of the system that distinguishes a metasearch implementation from a proprietary search engine.
-
-### 4. Result ranking and presentation layer
-
-The aggregated results need to be displayed in a usable order. This may involve filtering, re-ranking, formatting, or presentation logic to make the result list easier to consume.
-
-### 5. Reverse proxy and hosting layer
-
-A public-facing service typically runs behind a reverse proxy or web server that manages HTTP/HTTPS, request routing, caching, and security checks.
-
-### 6. Monitoring and operations layer
-
-Monitoring services such as Hetrix Tools ensure there is visibility into service health and that outages are quickly detected.
-
-### 7. Policy and compliance layer
-
-This layer ensures the project remains aligned with official privacy policy documentation and any other relevant legal or operational obligations.
-
-## Typical Deployment Stack
-
-A Search123 deployment may involve one or more of the following components:
-
-- SearXNG or a SearXNG-inspired backend
-- a reverse proxy like Nginx or Caddy
-- TLS certificate management
-- a public domain or subdomain
-- monitoring services such as Hetrix Tools
-- a VPS or cloud hosting environment
-- logging and troubleshooting tools
-- optional rate limiting or abuse protections
-- backup and recovery workflows
-
-## Security Considerations
-
-Public web services must be treated as internet-facing systems. Even a relatively small search project can be exposed to traffic spikes, automated attacks, abusive requests, and security vulnerabilities that demand attention.
-
-For this reason, a production deployment should include:
-
-- regular package upgrades
-- secure TLS configuration
-- limited administrative exposure
-- network hardening
-- monitoring and alerting
-- testing for unusual traffic patterns
-- backup and rollback procedures
-- careful review of externally visible data handling
-
-## Performance Considerations
-
-Search systems sometimes need to balance performance against breadth of results. A metasearch engine may need to wait on multiple upstream queries, which can add latency. Search123 should therefore aim for a reasonable balance between responsiveness and result quality.
-
-Performance improvements could include:
-
-- better result caching strategies
-- improved ranking and filtering
-- optimized server-side request handling
-- reduced unnecessary UI overhead
-- result layout improvements for mobile and desktop users
-
-## Reliability and Uptime
-
-Availability is essential for a public service. Search123 includes uptime monitoring to ensure that the service remains healthy and accessible.
-
-Official uptime link:
-
-- https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/
-
-This platform provides a practical way to verify service continuity and react quickly when there is a disruption.
-
-## Documentation Philosophy
-
-This repository is intended to be a strong documentation foundation. It does not only describe the frontend; it explains the reasoning behind the project, the broader context of the search ecosystem, and how the pieces fit together.
-
-The documentation aims to answer questions such as:
-
-- What is Search123?
-- What problem does it solve?
-- Why is it inspired by SearXNG?
-- How is it structured?
-- What are the main operational concerns?
-- Where are the official public links?
-- Where is the privacy policy located?
-- How can the service be extended in the future?
-
-## Development Principles
-
-The Search123 project is guided by the following principles:
-
-- simplicity over unnecessary complexity
-- clarity over obscurity
-- openness over closed systems
-- maintainability over fragile custom solutions
-- privacy awareness over intrusive design
-- extensibility over rigid implementation
 
 ## Potential Future Enhancements
 
@@ -307,22 +257,7 @@ This website is a public reference point for the broader organization, while the
 
 ## Legal and Policy Alignment
 
-The project should always align with the official public policy and legal notices that are published by the owning organization. If a question concerns privacy, cookies, consent, or data processing, it should refer to the official privacy policy rather than invent or restate policy language in this repository.
-
-This repository intentionally avoids duplicating or rewriting policy language that belongs in the official privacy policy document.
-
-## Public Communication Standards
-
-Any public-facing message or documentation related to Search123 should remain:
-
-- honest
-- clear
-- accurate
-- relevant
-- respectful of user expectations
-- consistent with the official privacy policy
-
-This helps maintain trust, reduces confusion, and supports a stable user experience.
+The project should always align with the official public policy and legal notices that are published by the owning organization. If a question concerns privacy, cookies, consent, or data processing, refer to the official privacy policy document.
 
 ## Success Criteria
 
@@ -335,19 +270,6 @@ Search123 can be considered successful when:
 - the project stays aligned with privacy-conscious principles
 - documentation remains current and useful
 - it remains extensible and adaptable for future work
-
-## Risks and Limitations
-
-A public metasearch project inevitably comes with trade-offs, including:
-
-- varied result quality depending on upstream providers
-- possible latency caused by running multiple queries
-- dependence on external upstream search sources
-- infrastructure and hosting responsibilities
-- the need for ongoing maintenance and monitoring
-- privacy posture constraints depending on operational setup
-
-These limitations are common in metasearch and should be considered part of the project design rather than a weakness of the concept itself.
 
 ## Maintenance Responsibilities
 
@@ -363,7 +285,7 @@ Search123 should be maintained with a clear operational mindset. That includes:
 
 ## Final Summary
 
-Search123 is a privacy-conscious, SearXNG-inspired search project built to provide a clear, user-friendly, and public-facing search experience. It aims to deliver practical value while promoting privacy-aware design and open-source principles.
+Search123 is a privacy-conscious, SearXNG-inspired search project built to provide a clear, user-friendly, and public-facing search experience. It aims to deliver practical value while promoting open-source principles and responsible digital practices.
 
 Key public links:
 
@@ -372,7 +294,7 @@ Key public links:
 - Cheesy Studios: https://www.cheesy-studios.22web.org/homepagina
 - Privacy Policy: https://cheesy-studios.tawk.help/article/hieronder-onze-uitgebreide-privacyverklaring
 
-This repository provides the broader project documentation and should act as a technical and operational companion to the live instance and official policy references. In all matters involving data handling or privacy concerns, refer to the official privacy policy.
+This repository provides the broader project documentation and should act as a technical and operational companion to the live instance and official policy references.
 
 ---
 
@@ -386,23 +308,6 @@ If you are looking for the essentials:
 - Uptime status: https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/
 - Website: https://www.cheesy-studios.22web.org/homepagina
 - Privacy Policy: https://cheesy-studios.tawk.help/article/hieronder-onze-uitgebreide-privacyverklaring
+- License: GNU Affero General Public License v3.0 (AGPL-3.0)
 
 Search123 is a public-facing search project with a focus on usable retrieval, privacy awareness, and maintainable operational design.
-
-## Contribution Notes
-
-This project welcomes improvements in areas such as:
-
-- UI refinement
-- documentation improvements
-- accessibility enhancements
-- better deployment guidance
-- operator notes and maintenance documentation
-- performance tuning and search relevance work
-- monitoring and reliability improvements
-
-## Closing Statement
-
-Search123 represents a practical and forward-looking search project built around open-source inspiration, modern usability, and responsible digital practices. It is intended to remain clear, maintainable, and useful for both operators and users.
-
-For all privacy-related matters, the official privacy policy is the authoritative source. That policy remains the definitive source for privacy questions, and all technical documentation in this repository should support that official guidance rather than replace it.

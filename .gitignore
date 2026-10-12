@@ -1,0 +1,57 @@
+# Environment and configuration files
+*.env
+*.env.local
+*.env.*.local
+*.secret
+config/secrets.yml
+config/settings.yml
+
+# Log files
+*.log
+*.log.*
+logs/
+
+# System files
+.DS_Store
+Thumbs.db
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Docker data directories
+data/
+data/*
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.sublime-workspace
+
+# Dependency directories
+node_modules/
+venv/
+env/
+.Python
+
+# Build and distribution
+build/
+dist/
+*.egg-info/
+__pycache__/
+*.pyc
+*.pyo
+
+# macOS
+.AppleDouble
+.LSOverride
+
+# Windows
+$RECYCLE.BIN/

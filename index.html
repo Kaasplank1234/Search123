@@ -1,641 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Search123 — A privacy-focused metasearch engine. Fast, clean, and without tracking. Open-source and community-driven." />
-    <title>Search123 · Privacy-focused metasearch engine</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Search123 - A privacy-focused metasearch engine inspired by SearXNG. No tracking, no profiling, no data sales.">
+    <meta name="theme-color" content="#1a73e8">
+    <title>Search123 - Privacy-Focused Search</title>
     <style>
-        *,
-        *::before,
-        *::after {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --bg: #070a10;
-            --bg-soft: #0d1219;
-            --card: #111823;
-            --card-hover: #161f2e;
-            --border: #1c2533;
-            --border-hover: rgba(48, 80, 255, 0.35);
-            --text: #eef1f6;
-            --text-dim: #8b95a8;
-            --text-soft: #5c6778;
-            --accent: #3050ff;
-            --accent-light: #7ab8ff;
-            --accent-soft: rgba(48, 80, 255, 0.1);
-            --success: #10b981;
-            --radius: 18px;
-            --radius-sm: 12px;
-            --radius-full: 9999px;
-            --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            --transition: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: var(--font);
-            background: var(--bg);
-            background-image:
-                radial-gradient(ellipse at 50% -30%, rgba(48, 80, 255, 0.18), transparent 55%),
-                radial-gradient(ellipse at 90% 110%, rgba(48, 80, 255, 0.06), transparent 45%);
-            background-attachment: fixed;
-            color: var(--text);
-            line-height: 1.65;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 40px 20px 60px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            flex-direction: column;
         }
 
-        .container {
-            width: 100%;
-            max-width: 800px;
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
             margin: 0 auto;
-            animation: fadeUp 0.8s ease-out both;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(24px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+            text-decoration: none;
         }
 
-        /* ===== HERO ===== */
+        nav a {
+            margin-left: 30px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
         .hero {
             text-align: center;
-            margin-bottom: 56px;
+            color: white;
+            padding: 40px 20px;
+            max-width: 800px;
         }
 
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 7px 18px;
-            background: var(--accent-soft);
-            border: 1px solid rgba(48, 80, 255, 0.18);
-            border-radius: var(--radius-full);
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--accent-light);
-            margin-bottom: 24px;
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        .hero-badge .dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--accent-light);
-            animation: pulse 2.4s ease-in-out infinite;
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
         }
 
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.4;
-                transform: scale(0.7);
-            }
-        }
-
-        .hero-title {
-            font-size: clamp(2.8rem, 8vw, 4rem);
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            line-height: 1.05;
-            background: linear-gradient(135deg, #ffffff 0%, #7ab8ff 60%, #3050ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 16px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.05rem;
-            color: var(--text-dim);
-            font-weight: 400;
-            max-width: 540px;
-            margin: 0 auto 32px;
-            line-height: 1.7;
-            letter-spacing: 0.01em;
-        }
-
-        .status-button {
-            display: inline-block;
-            margin-bottom: 32px;
-        }
-
-        .status-button iframe {
-            border: none;
-            border-radius: var(--radius-full);
-        }
-
-        /* ===== SECTION LABEL ===== */
-        .section-label {
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--text-soft);
-            margin-bottom: 16px;
-            padding-left: 4px;
-        }
-
-        /* ===== CARD ===== */
-        .card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 28px 26px;
-            margin-bottom: 14px;
-            transition: all var(--transition);
-            text-align: left;
-            position: relative;
-            overflow: hidden;
-            display: block;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(48, 80, 255, 0.3), transparent);
-            opacity: 0;
-            transition: opacity var(--transition);
-        }
-
-        .card:hover::before {
-            opacity: 1;
-        }
-
-        .card:hover {
-            background: var(--card-hover);
-            border-color: var(--border-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
-        }
-
-        .card-header {
+        .cta-buttons {
             display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 14px;
-        }
-
-        .card-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 11px;
-            background: var(--accent-soft);
-            border: 1px solid rgba(48, 80, 255, 0.1);
-            display: flex;
-            align-items: center;
+            gap: 15px;
             justify-content: center;
-            font-size: 20px;
-            flex-shrink: 0;
-            transition: all var(--transition);
+            flex-wrap: wrap;
+            margin-bottom: 60px;
         }
 
-        .card:hover .card-icon {
-            background: rgba(48, 80, 255, 0.16);
-            border-color: rgba(48, 80, 255, 0.25);
-            transform: scale(1.05);
-        }
-
-        .card-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--text);
-            letter-spacing: -0.01em;
-            line-height: 1.3;
-        }
-
-        .card-desc {
-            font-size: 0.88rem;
-            color: var(--text-dim);
-            margin-bottom: 18px;
-            line-height: 1.65;
-        }
-
-        .card-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            color: var(--accent-light);
-            text-decoration: none;
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
             font-weight: 600;
-            font-size: 0.88rem;
-            transition: gap var(--transition), color var(--transition);
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
         }
 
-        .card-link:hover {
-            gap: 12px;
-            color: #a8d0ff;
+        .btn-primary {
+            background: white;
+            color: #667eea;
         }
 
-        .card-link .arrow {
-            transition: transform var(--transition);
-            font-size: 1rem;
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .card-link:hover .arrow {
-            transform: translateX(3px);
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
         }
 
-        /* ===== FEATURES GRID ===== */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 14px;
-            margin-bottom: 32px;
-        }
-
-        .feature-box {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 20px 16px;
-            text-align: center;
-            transition: all var(--transition);
-        }
-
-        .feature-box:hover {
-            background: var(--card-hover);
-            border-color: var(--border-hover);
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
         }
 
-        .feature-icon {
-            font-size: 24px;
-            margin-bottom: 8px;
+        .privacy-note {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 40px auto;
+            max-width: 600px;
+            color: white;
+            backdrop-filter: blur(10px);
         }
 
-        .feature-title {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 4px;
+        .privacy-note h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
         }
 
-        .feature-desc {
-            font-size: 0.8rem;
-            color: var(--text-dim);
+        .privacy-note p {
+            font-size: 1rem;
             line-height: 1.5;
         }
 
-        /* ===== DIVIDER ===== */
-        .divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--border), transparent);
-            margin: 48px 0;
-        }
-
-        /* ===== INFO BOX ===== */
-        .info-box {
-            background: var(--bg-soft);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 22px 24px;
-            margin-bottom: 32px;
-            text-align: left;
-        }
-
-        .info-box .box-title {
-            font-size: 0.82rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .info-box .box-text {
-            font-size: 0.85rem;
-            color: var(--text-dim);
-            line-height: 1.7;
-            margin-bottom: 12px;
-        }
-
-        .info-box .box-text:last-child {
-            margin-bottom: 0;
-        }
-
-        .info-box a {
-            color: var(--accent-light);
-            text-decoration: none;
-            font-weight: 500;
-            border-bottom: 1px solid rgba(48, 80, 255, 0.3);
-            transition: border-color var(--transition);
-        }
-
-        .info-box a:hover {
-            border-color: var(--accent-light);
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
+        footer {
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            padding: 40px 20px;
             text-align: center;
-            padding-top: 8px;
         }
 
-        .made-with-love {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 26px;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-full);
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: white;
             text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-dim);
-            transition: all var(--transition);
-            margin-bottom: 24px;
+            transition: opacity 0.3s;
         }
 
-        .made-with-love:hover {
-            background: var(--card-hover);
-            border-color: var(--border-hover);
-            color: var(--text);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-        }
-
-        .made-with-love .heart {
-            color: #ef4444;
-            animation: heartbeat 1.6s ease-in-out infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
-            15% {
-                transform: scale(1.18);
-            }
-            30% {
-                transform: scale(1);
-            }
-            45% {
-                transform: scale(1.12);
-            }
-            60% {
-                transform: scale(1);
-            }
-        }
-
-        .footer-meta {
-            font-size: 0.78rem;
-            color: var(--text-soft);
-            letter-spacing: 0.02em;
-        }
-
-        .footer-meta a {
-            color: var(--accent-light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity var(--transition);
-        }
-
-        .footer-meta a:hover {
+        .footer-links a:hover {
             opacity: 0.8;
         }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 520px) {
-            body {
-                padding: 28px 16px 48px;
-            }
-
-            .hero {
-                margin-bottom: 40px;
-            }
-
-            .card {
-                padding: 22px 20px;
-            }
-
-            .card-icon {
-                width: 38px;
-                height: 38px;
-                font-size: 18px;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .info-box {
-                padding: 18px 20px;
-            }
-
-            .made-with-love {
-                padding: 10px 20px;
-                font-size: 0.8rem;
-            }
+        .cheesy-studios-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 20px 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
         }
 
-        /* ===== ACCESSIBILITY ===== */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
+        .cheesy-studios-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
-        a:focus-visible {
-            outline: 2px solid var(--accent-light);
-            outline-offset: 3px;
-            border-radius: 6px;
+        .copyright {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">Search123</a>
+            <nav>
+                <a href="https://search123.dpdns.org/">Search Now</a>
+                <a href="https://github.com/Kaasplank1234/Search123">GitHub</a>
+                <a href="https://www.cheesy-studios.22web.org/homepagina">Cheesy Studios</a>
+                <a href="https://www.cheesy-studios.22web.org/neem-contact-met-ons-op-faq">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-        <!-- HERO -->
-        <section class="hero">
-            <div class="hero-badge">
-                <span class="dot"></span>
-                Privacy-first metasearch
-            </div>
-            <h1 class="hero-title">Search123</h1>
-            <p class="hero-subtitle">
-                A fast, clean, and privacy-focused metasearch engine. No tracking. No profiling. Just your results.
-            </p>
-            
-            <!-- UPTIME STATUS BUTTON -->
-            <div class="status-button">
-                <iframe src="https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/?up" style="width: 200px; height: 40px;"></iframe>
-            </div>
-        </section>
+    <main>
+        <div class="hero">
+            <h1>Search123</h1>
+            <p>Privacy-Focused Metasearch Engine</p>
+            <p style="font-size: 1.1rem; margin-bottom: 30px;">Search the web without tracking, profiling, or data collection</p>
 
-        <!-- KEY FEATURES -->
-        <p class="section-label">Why Search123?</p>
-        
-        <div class="features-grid">
-            <div class="feature-box">
-                <div class="feature-icon">🔒</div>
-                <div class="feature-title">100% Private</div>
-                <div class="feature-desc">No tracking, no cookies, no data collection</div>
+            <div class="cta-buttons">
+                <a href="https://search123.dpdns.org/" class="btn btn-primary">Start Searching</a>
+                <a href="https://github.com/Kaasplank1234/Search123" class="btn btn-secondary">View on GitHub</a>
             </div>
-            <div class="feature-box">
-                <div class="feature-icon">⚡</div>
-                <div class="feature-title">Lightning Fast</div>
-                <div class="feature-desc">Instant results from multiple sources</div>
-            </div>
-            <div class="feature-box">
-                <div class="feature-icon">🔗</div>
-                <div class="feature-title">Meta Search</div>
-                <div class="feature-desc">Aggregates results from top engines</div>
-            </div>
-            <div class="feature-box">
-                <div class="feature-icon">💻</div>
-                <div class="feature-title">Open Source</div>
-                <div class="feature-desc">Transparent and community-driven</div>
-            </div>
-            <div class="feature-box">
-                <div class="feature-icon">🌍</div>
-                <div class="feature-title">Anonymous</div>
-                <div class="feature-desc">Your searches stay between you and the web</div>
-            </div>
-            <div class="feature-box">
-                <div class="feature-icon">🚀</div>
-                <div class="feature-title">Self-Hosted</div>
-                <div class="feature-desc">Deploy your own instance today</div>
+
+            <div class="privacy-note">
+                <h3>🔒 Your Privacy Matters</h3>
+                <p>
+                    Search123 does not track your searches, profile your behavior, or sell your data. 
+                    We believe in a web where privacy is the default, not a luxury.
+                </p>
             </div>
         </div>
+    </main>
 
-        <div class="divider"></div>
-
-        <!-- QUICK LINKS -->
-        <p class="section-label">Get Started</p>
-
-        <a href="https://search123.dpdns.org/" target="_blank" rel="noopener" class="card">
-            <div class="card-header">
-                <div class="card-icon">🔍</div>
-                <h2 class="card-title">Search Now</h2>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Search123</h3>
+                <p>A privacy-conscious metasearch engine inspired by SearXNG</p>
             </div>
-            <p class="card-desc">
-                Start searching privately right now. No sign-up required, completely anonymous.
-            </p>
-            <span class="card-link">
-                Open Search123
-                <span class="arrow">→</span>
-            </span>
-        </a>
 
-        <a href="https://github.com/Kaasplank1234/Search123" target="_blank" rel="noopener" class="card">
-            <div class="card-header">
-                <div class="card-icon">📦</div>
-                <h2 class="card-title">GitHub Repository</h2>
+            <div class="footer-links">
+                <a href="https://search123.dpdns.org/">Search</a>
+                <a href="https://github.com/Kaasplank1234/Search123">GitHub Repository</a>
+                <a href="https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/">Status</a>
+                <a href="https://cheesy-studios.tawk.help/article/hieronder-onze-uitgebreide-privacyverklaring">Privacy Policy</a>
             </div>
-            <p class="card-desc">
-                Explore the source code, documentation, architecture, and deployment guides. Contribute and improve!
-            </p>
-            <span class="card-link">
-                View on GitHub
-                <span class="arrow">→</span>
-            </span>
-        </a>
 
-        <a href="https://www.cheesy-studios.22web.org/homepagina" target="_blank" rel="noopener" class="card">
-            <div class="card-header">
-                <div class="card-icon">🌐</div>
-                <h2 class="card-title">Cheesy Studios</h2>
+            <a href="https://www.cheesy-studios.22web.org/homepagina" class="cheesy-studios-btn">💖 Made with love by Cheesy Studios</a>
+
+            <div class="copyright">
+                <p>&copy; 2024 Cheesy Studios. Search123 is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0).</p>
+                <p>Inspired by <a href="https://github.com/searxng/searxng" style="color: white; text-decoration: underline;">SearXNG</a></p>
             </div>
-            <p class="card-desc">
-                Visit Cheesy Studios for more innovative projects and services built with passion.
-            </p>
-            <span class="card-link">
-                Visit Studio
-                <span class="arrow">→</span>
-            </span>
-        </a>
-
-        <a href="https://www.cheesy-studios.22web.org/neem-contact-met-ons-op-faq" target="_blank" rel="noopener" class="card">
-            <div class="card-header">
-                <div class="card-icon">✉️</div>
-                <h2 class="card-title">Contact & Support</h2>
-            </div>
-            <p class="card-desc">
-                Have questions? Want to collaborate? Check our FAQ or reach out to our team directly.
-            </p>
-            <span class="card-link">
-                Get in Touch
-                <span class="arrow">→</span>
-            </span>
-        </a>
-
-        <div class="divider"></div>
-
-        <!-- PRIVACY & SECURITY -->
-        <div class="info-box">
-            <div class="box-title">🔒 Privacy & Security</div>
-            <p class="box-text">
-                Search123 is built with privacy as a core principle. We do not collect, track, or sell any personal data. Your searches are not stored, your IP address is not logged, and no cookies are set.
-            </p>
-            <p class="box-text">
-                Every search query is routed through our secure infrastructure and processed without any form of profiling or targeted advertising.
-            </p>
-            <p class="box-text">
-                For complete details about our privacy practices, security measures, and data handling, please visit the
-                <a href="https://github.com/Kaasplank1234/Search123" target="_blank" rel="noopener">GitHub repository documentation</a>.
-            </p>
         </div>
-
-        <!-- ABOUT -->
-        <div class="info-box">
-            <div class="box-title">ℹ️ About Search123</div>
-            <p class="box-text">
-                Search123 is a modern metasearch engine developed by Cheesy Studios. It aggregates results from multiple search engines while maintaining complete user privacy.
-            </p>
-            <p class="box-text">
-                The project is entirely open-source, meaning anyone can review the code, report security issues, and contribute improvements. We believe transparency and community involvement are essential for building trustworthy tools.
-            </p>
-            <p class="box-text">
-                Whether you're concerned about search privacy, want a faster search experience, or simply believe in open-source software, Search123 is designed for you.
-            </p>
-        </div>
-
-        <!-- FOOTER -->
-        <footer class="footer">
-            <a href="https://www.cheesy-studios.22web.org/homepagina" target="_blank" rel="noopener" class="made-with-love">
-                Made with <span class="heart">❤</span> by Cheesy Studios
-            </a>
-            <p class="footer-meta">
-                © 2026 Cheesy Studios · <a href="https://search123.dpdns.org/" target="_blank" rel="noopener">Search123</a> · <a href="https://github.com/Kaasplank1234/Search123" target="_blank" rel="noopener">GitHub</a>
-            </p>
-        </footer>
-
-    </div>
+    </footer>
 </body>
 </html>
