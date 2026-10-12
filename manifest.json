@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Search123 - Privacy Search",
+  "version": "1.0.0",
+  "description": "Set Search123 as your default search engine. Privacy-focused, no tracking.",
+  "permissions": ["search"],
+  "host_permissions": ["https://search123.dpdns.org/*"],
+  "chrome_settings_overrides": {
+    "search_provider": {
+      "name": "Search123",
+      "keyword": "search123",
+      "search_url": "https://search123.dpdns.org/search?q={searchTerms}",
+      "favicon_url": "https://search123.dpdns.org/favicon.ico",
+      "suggest_url": "https://search123.dpdns.org/autocomplete?q={searchTerms}",
+      "encoding": "UTF-8",
+      "is_default": true
+    }
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon-16.png",
+      "48": "icon-48.png",
+      "128": "icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icon-16.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
