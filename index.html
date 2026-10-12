@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Search123 — A privacy-focused metasearch engine. Fast, clean, and without tracking." />
-    <title>Search123 · Privacy-focused search engine</title>
+    <meta name="description" content="Search123 — A privacy-focused metasearch engine. Fast, clean, and without tracking. Open-source and community-driven." />
+    <title>Search123 · Privacy-focused metasearch engine</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
@@ -30,6 +30,7 @@
             --accent: #3050ff;
             --accent-light: #7ab8ff;
             --accent-soft: rgba(48, 80, 255, 0.1);
+            --success: #10b981;
             --radius: 18px;
             --radius-sm: 12px;
             --radius-full: 9999px;
@@ -58,7 +59,7 @@
 
         .container {
             width: 100%;
-            max-width: 680px;
+            max-width: 800px;
             margin: 0 auto;
             animation: fadeUp 0.8s ease-out both;
         }
@@ -131,10 +132,20 @@
             font-size: 1.05rem;
             color: var(--text-dim);
             font-weight: 400;
-            max-width: 460px;
-            margin: 0 auto;
+            max-width: 540px;
+            margin: 0 auto 32px;
             line-height: 1.7;
             letter-spacing: 0.01em;
+        }
+
+        .status-button {
+            display: inline-block;
+            margin-bottom: 32px;
+        }
+
+        .status-button iframe {
+            border: none;
+            border-radius: var(--radius-full);
         }
 
         /* ===== SECTION LABEL ===== */
@@ -159,6 +170,9 @@
             text-align: left;
             position: relative;
             overflow: hidden;
+            display: block;
+            text-decoration: none;
+            color: inherit;
         }
 
         .card::before {
@@ -251,6 +265,47 @@
             transform: translateX(3px);
         }
 
+        /* ===== FEATURES GRID ===== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin-bottom: 32px;
+        }
+
+        .feature-box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 20px 16px;
+            text-align: center;
+            transition: all var(--transition);
+        }
+
+        .feature-box:hover {
+            background: var(--card-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .feature-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .feature-desc {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
+
         /* ===== DIVIDER ===== */
         .divider {
             height: 1px;
@@ -258,17 +313,17 @@
             margin: 48px 0;
         }
 
-        /* ===== PRIVACY NOTE ===== */
-        .privacy-note {
+        /* ===== INFO BOX ===== */
+        .info-box {
             background: var(--bg-soft);
             border: 1px solid var(--border);
             border-radius: var(--radius-sm);
             padding: 22px 24px;
-            margin-bottom: 48px;
+            margin-bottom: 32px;
             text-align: left;
         }
 
-        .privacy-note .note-title {
+        .info-box .box-title {
             font-size: 0.82rem;
             font-weight: 700;
             color: var(--text);
@@ -278,13 +333,18 @@
             gap: 8px;
         }
 
-        .privacy-note .note-text {
+        .info-box .box-text {
             font-size: 0.85rem;
             color: var(--text-dim);
             line-height: 1.7;
+            margin-bottom: 12px;
         }
 
-        .privacy-note .note-text a {
+        .info-box .box-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-box a {
             color: var(--accent-light);
             text-decoration: none;
             font-weight: 500;
@@ -292,7 +352,7 @@
             transition: border-color var(--transition);
         }
 
-        .privacy-note .note-text a:hover {
+        .info-box a:hover {
             border-color: var(--accent-light);
         }
 
@@ -386,7 +446,11 @@
                 font-size: 18px;
             }
 
-            .privacy-note {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-box {
                 padding: 18px 20px;
             }
 
@@ -425,20 +489,77 @@
             </div>
             <h1 class="hero-title">Search123</h1>
             <p class="hero-subtitle">
-                A clean, privacy-focused search experience. No tracking. No profiling. Just results.
+                A fast, clean, and privacy-focused metasearch engine. No tracking. No profiling. Just your results.
             </p>
+            
+            <!-- UPTIME STATUS BUTTON -->
+            <div class="status-button">
+                <iframe src="https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/?up" style="width: 200px; height: 40px;"></iframe>
+            </div>
         </section>
 
-        <!-- QUICK LINKS -->
-        <p class="section-label">Explore</p>
+        <!-- KEY FEATURES -->
+        <p class="section-label">Why Search123?</p>
+        
+        <div class="features-grid">
+            <div class="feature-box">
+                <div class="feature-icon">🔒</div>
+                <div class="feature-title">100% Private</div>
+                <div class="feature-desc">No tracking, no cookies, no data collection</div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-title">Lightning Fast</div>
+                <div class="feature-desc">Instant results from multiple sources</div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">🔗</div>
+                <div class="feature-title">Meta Search</div>
+                <div class="feature-desc">Aggregates results from top engines</div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">💻</div>
+                <div class="feature-title">Open Source</div>
+                <div class="feature-desc">Transparent and community-driven</div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">🌍</div>
+                <div class="feature-title">Anonymous</div>
+                <div class="feature-desc">Your searches stay between you and the web</div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">🚀</div>
+                <div class="feature-title">Self-Hosted</div>
+                <div class="feature-desc">Deploy your own instance today</div>
+            </div>
+        </div>
 
-        <a href="https://github.com/Kaasplank1234/Search123" target="_blank" rel="noopener" class="card" style="display:block; text-decoration:none;">
+        <div class="divider"></div>
+
+        <!-- QUICK LINKS -->
+        <p class="section-label">Get Started</p>
+
+        <a href="https://search123.dpdns.org/" target="_blank" rel="noopener" class="card">
+            <div class="card-header">
+                <div class="card-icon">🔍</div>
+                <h2 class="card-title">Search Now</h2>
+            </div>
+            <p class="card-desc">
+                Start searching privately right now. No sign-up required, completely anonymous.
+            </p>
+            <span class="card-link">
+                Open Search123
+                <span class="arrow">→</span>
+            </span>
+        </a>
+
+        <a href="https://github.com/Kaasplank1234/Search123" target="_blank" rel="noopener" class="card">
             <div class="card-header">
                 <div class="card-icon">📦</div>
                 <h2 class="card-title">GitHub Repository</h2>
             </div>
             <p class="card-desc">
-                Full documentation, architecture details, deployment guidance, and privacy information.
+                Explore the source code, documentation, architecture, and deployment guides. Contribute and improve!
             </p>
             <span class="card-link">
                 View on GitHub
@@ -446,53 +567,72 @@
             </span>
         </a>
 
-        <a href="https://www.cheesy-studios.22web.org/homepagina" target="_blank" rel="noopener" class="card" style="display:block; text-decoration:none;">
+        <a href="https://www.cheesy-studios.22web.org/homepagina" target="_blank" rel="noopener" class="card">
             <div class="card-header">
                 <div class="card-icon">🌐</div>
                 <h2 class="card-title">Cheesy Studios</h2>
             </div>
             <p class="card-desc">
-                Visit the official Cheesy Studios website for more projects, services, and updates.
+                Visit Cheesy Studios for more innovative projects and services built with passion.
             </p>
             <span class="card-link">
-                Go to website
+                Visit Studio
                 <span class="arrow">→</span>
             </span>
         </a>
 
-        <a href="https://www.cheesy-studios.22web.org/neem-contact-met-ons-op-faq" target="_blank" rel="noopener" class="card" style="display:block; text-decoration:none;">
+        <a href="https://www.cheesy-studios.22web.org/neem-contact-met-ons-op-faq" target="_blank" rel="noopener" class="card">
             <div class="card-header">
                 <div class="card-icon">✉️</div>
-                <h2 class="card-title">Contact & FAQ</h2>
+                <h2 class="card-title">Contact & Support</h2>
             </div>
             <p class="card-desc">
-                Questions, ideas, or collaboration? Get in touch or check the frequently asked questions.
+                Have questions? Want to collaborate? Check our FAQ or reach out to our team directly.
             </p>
             <span class="card-link">
-                Contact us
+                Get in Touch
                 <span class="arrow">→</span>
             </span>
         </a>
 
         <div class="divider"></div>
 
-        <!-- PRIVACY NOTE -->
-        <div class="privacy-note">
-            <div class="note-title">🔒 Privacy</div>
-            <p class="note-text">
-                Search123 is built with privacy in mind. We do not track, profile, or sell your data.
-                For full details on how we handle information, please refer to the
-                <a href="https://github.com/Kaasplank1234/Search123" target="_blank" rel="noopener">documentation on GitHub</a>.
+        <!-- PRIVACY & SECURITY -->
+        <div class="info-box">
+            <div class="box-title">🔒 Privacy & Security</div>
+            <p class="box-text">
+                Search123 is built with privacy as a core principle. We do not collect, track, or sell any personal data. Your searches are not stored, your IP address is not logged, and no cookies are set.
+            </p>
+            <p class="box-text">
+                Every search query is routed through our secure infrastructure and processed without any form of profiling or targeted advertising.
+            </p>
+            <p class="box-text">
+                For complete details about our privacy practices, security measures, and data handling, please visit the
+                <a href="https://github.com/Kaasplank1234/Search123" target="_blank" rel="noopener">GitHub repository documentation</a>.
+            </p>
+        </div>
+
+        <!-- ABOUT -->
+        <div class="info-box">
+            <div class="box-title">ℹ️ About Search123</div>
+            <p class="box-text">
+                Search123 is a modern metasearch engine developed by Cheesy Studios. It aggregates results from multiple search engines while maintaining complete user privacy.
+            </p>
+            <p class="box-text">
+                The project is entirely open-source, meaning anyone can review the code, report security issues, and contribute improvements. We believe transparency and community involvement are essential for building trustworthy tools.
+            </p>
+            <p class="box-text">
+                Whether you're concerned about search privacy, want a faster search experience, or simply believe in open-source software, Search123 is designed for you.
             </p>
         </div>
 
         <!-- FOOTER -->
         <footer class="footer">
             <a href="https://www.cheesy-studios.22web.org/homepagina" target="_blank" rel="noopener" class="made-with-love">
-                Made with <span class="heart">❤</span> by Cheesy-Studios
+                Made with <span class="heart">❤</span> by Cheesy Studios
             </a>
             <p class="footer-meta">
-                © 2026 Cheesy Studios · <a href="https://search123.dpdns.org/" target="_blank" rel="noopener">Search123</a>
+                © 2026 Cheesy Studios · <a href="https://search123.dpdns.org/" target="_blank" rel="noopener">Search123</a> · <a href="https://github.com/Kaasplank1234/Search123" target="_blank" rel="noopener">GitHub</a>
             </p>
         </footer>
 
