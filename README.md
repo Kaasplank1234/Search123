@@ -1,19 +1,20 @@
 # Search123
 
-Search123 is a privacy-conscious, SearXNG-inspired metasearch project designed to provide a clean, modern, and user-friendly public search experience. It is intended to serve as a simple but powerful privacy-aware alternative to centralized search engines.
+Search123 is a privacy-conscious, SearXNG-inspired metasearch project designed to provide a clean, modern, and user-friendly public search experience. It is intended to serve as a simple but powerful search engine for privacy-aware users.
 
 Live project links:
 
-- Search Engine: https://search123.dpdns.org/
-- Uptime Monitoring: https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/
-- Cheesy Studios website: https://www.cheesy-studios.22web.org/homepagina
-- Privacy Policy: https://cheesy-studios.tawk.help/article/hieronder-onze-uitgebreide-privacyverklaring
+- 🔍 Search Engine: https://search123.dpdns.org/
+- 📊 Website: https://kaasplank1234.github.io/Search123/
+- ⏱️ Uptime Monitoring: https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/
+- 🏠 Cheesy Studios website: https://www.cheesy-studios.22web.org/homepagina
+- 🔐 Privacy Policy: https://cheesy-studios.tawk.help/article/hieronder-onze-uitgebreide-privacyverklaring
 
-This repository contains the official project documentation for Search123. The content below is written in English and is meant to provide a complete overview of the project, its architecture, its operational model, and its relationship to the broader open-source ecosystem.
+This repository contains the official project documentation for Search123. The content below is written in English and is meant to provide a complete overview of the project, its architecture, its deployment, and its operational requirements.
 
 ## Project Overview
 
-Search123 is a web search instance inspired by the principles of SearXNG, a well-known open-source metasearch engine. SearXNG focuses on privacy, aggregation, and decentralization in the search process. Rather than querying a single large search provider, a metasearch engine retrieves results from multiple sources and aggregates them into a single user-facing interface.
+Search123 is a web search instance inspired by the principles of SearXNG, a well-known open-source metasearch engine. SearXNG focuses on privacy, aggregation, and decentralization in the search process.
 
 The project is more than a simple search frontend. It represents an approach to public search that values:
 
@@ -26,7 +27,7 @@ The project is more than a simple search frontend. It represents an approach to 
 
 ## Why Search123 Exists
 
-The internet is dominated by a small number of highly centralized search services. While these services are highly functional, they are often associated with aggressive data collection, user profiling, and monetization of user behavior. Search123 was created to demonstrate that privacy-aware search is both technically viable and commercially practical.
+The internet is dominated by a small number of highly centralized search services. While these services are highly functional, they are often associated with aggressive data collection, user profiling, and ad targeting.
 
 This project is intended to deliver an experience that is:
 
@@ -39,7 +40,7 @@ This project is intended to deliver an experience that is:
 
 ## Relationship to SearXNG
 
-Search123 is not a clone of SearXNG in the strictest sense, but it follows the same general design directions. SearXNG is known for combining search results from multiple upstream sources into one user interface. SearXNG is mature, well-maintained, and widely deployed.
+Search123 is not a clone of SearXNG in the strictest sense, but it follows the same general design directions. SearXNG is known for combining search results from multiple upstream sources into one cohesive result page, while respecting user privacy.
 
 The domains in which Search123 aligns with SearXNG include:
 
@@ -112,7 +113,7 @@ For more information, see [SECURITY.md](SECURITY.md).
 
 ## Mission Statement
 
-The mission of Search123 is to provide a public, accessible, and privacy-aware web search experience that is simple to understand, easy to operate, and suitable for future development. The project reflects a commitment to open-source principles, community-driven development, and the belief that privacy and technology can coexist.
+The mission of Search123 is to provide a public, accessible, and privacy-aware web search experience that is simple to understand, easy to operate, and suitable for future development. The project succeeds when it delivers reliable search without compromising user privacy or operational simplicity.
 
 ## Goals and Objectives
 
@@ -141,7 +142,7 @@ This allows users to access the project directly in a browser without local setu
 
 ### 2. Privacy-oriented approach
 
-The project follows a privacy-focused direction consistent with the broader SearXNG philosophy. Search123 is intended to be a practical, respectful, and transparent search platform. Detailed privacy information is provided in the official privacy policy.
+The project follows a privacy-focused direction consistent with the broader SearXNG philosophy. Search123 is intended to be a practical, respectful, and transparent search platform. Detailed privacy considerations are documented in the official privacy policy.
 
 For the official policy, see:
 
@@ -155,9 +156,32 @@ Search123 is connected to an uptime monitoring service to keep track of availabi
 
 This gives maintainers an operational view of the service and helps detect downtime or faults quickly.
 
+#### Important: Handling Outages
+
+**Please note:** As a public service, Search123 may experience occasional outages due to:
+
+- Scheduled maintenance
+- Server issues or restarts
+- Network connectivity problems
+- SearXNG backend service disruptions
+- Hosting platform updates
+- Security patches or critical updates
+
+If you experience Search123 being unavailable or responding slowly, **please check the uptime monitoring page** to see if an outage is in progress:
+
+👉 **[Uptime Monitoring Dashboard](https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/)**
+
+The dashboard provides:
+- Real-time availability status
+- Historical uptime charts
+- Alert notifications
+- Response time metrics
+
+Users and operators should monitor this page regularly to stay informed about service status.
+
 ### 4. Clean and minimal interface
 
-The project emphasizes accessibility and a simple user experience. Instead of cluttering the page with heavy distractions or excessive UI layers, it aims to stay focused on the core task: searching.
+The project emphasizes accessibility and a simple user experience. Instead of cluttering the page with heavy distractions or excessive UI layers, it aims to stay focused on the core task: searching the web effectively.
 
 ### 5. Metasearch architecture
 
@@ -171,11 +195,12 @@ The project is designed to be documented, understandable, and extendable. Clear 
 
 The following links are central to the public presence of Search123:
 
-- Search123: https://search123.dpdns.org/
-- Uptime Monitoring: https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/
-- Cheesy Studios website: https://www.cheesy-studios.22web.org/homepagina
-- Privacy Policy: https://cheesy-studios.tawk.help/article/hieronder-onze-uitgebreide-privacyverklaring
-- GitHub Repository: https://github.com/Kaasplank1234/Search123
+- 🔍 Search Engine: https://search123.dpdns.org/
+- 📊 Official Website: https://kaasplank1234.github.io/Search123/
+- ⏱️ Uptime Monitoring: https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/
+- 🏠 Cheesy Studios: https://www.cheesy-studios.22web.org/homepagina
+- 🔐 Privacy Policy: https://cheesy-studios.tawk.help/article/hieronder-onze-uitgebreide-privacyverklaring
+- 📝 GitHub Repository: https://github.com/Kaasplank1234/Search123
 
 ## Use Cases
 
@@ -231,6 +256,24 @@ Typical operational tasks for this project include:
 - privacy and policy alignment reviews
 - maintenance of public-facing documentation
 
+## Handling Service Disruptions
+
+When service issues occur, the priority is to restore availability as quickly as possible. The uptime monitoring dashboard should be your first reference point for status updates.
+
+**Best practices for monitoring and responding to outages:**
+
+1. **Check the Dashboard:** Visit [https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/](https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/) to verify if an outage is in progress
+2. **Review Historical Data:** The dashboard provides historical uptime charts to identify patterns
+3. **Monitor Response Times:** Response time metrics can indicate performance degradation before full outages
+4. **Set Up Alerts:** Consider subscribing to uptime notifications through the monitoring service
+5. **Report Issues:** If you detect an issue not reflected on the dashboard, open a GitHub issue with details
+
+Outage response priorities:
+- Restore service availability immediately
+- Communicate status transparently
+- Post-incident review and documentation
+- Implementation of preventive measures
+
 ## Potential Future Enhancements
 
 Search123 has room for future development in several areas, including:
@@ -257,7 +300,7 @@ This website is a public reference point for the broader organization, while the
 
 ## Legal and Policy Alignment
 
-The project should always align with the official public policy and legal notices that are published by the owning organization. If a question concerns privacy, cookies, consent, or data processing, refer to the official privacy policy document.
+The project should always align with the official public policy and legal notices that are published by the owning organization. If a question concerns privacy, cookies, consent, or data processing, refer to the official privacy policy rather than making assumptions based on this documentation.
 
 ## Success Criteria
 
@@ -285,14 +328,15 @@ Search123 should be maintained with a clear operational mindset. That includes:
 
 ## Final Summary
 
-Search123 is a privacy-conscious, SearXNG-inspired search project built to provide a clear, user-friendly, and public-facing search experience. It aims to deliver practical value while promoting open-source principles and responsible digital practices.
+Search123 is a privacy-conscious, SearXNG-inspired search project built to provide a clear, user-friendly, and public-facing search experience. It aims to deliver practical value while promoting privacy awareness and open-source principles.
 
 Key public links:
 
-- Search Engine: https://search123.dpdns.org/
-- Uptime Monitoring: https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/
-- Cheesy Studios: https://www.cheesy-studios.22web.org/homepagina
-- Privacy Policy: https://cheesy-studios.tawk.help/article/hieronder-onze-uitgebreide-privacyverklaring
+- 🔍 Search Engine: https://search123.dpdns.org/
+- 📊 Official Website: https://kaasplank1234.github.io/Search123/
+- ⏱️ Uptime Monitoring: https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/
+- 🏠 Cheesy Studios: https://www.cheesy-studios.22web.org/homepagina
+- 🔐 Privacy Policy: https://cheesy-studios.tawk.help/article/hieronder-onze-uitgebreide-privacyverklaring
 
 This repository provides the broader project documentation and should act as a technical and operational companion to the live instance and official policy references.
 
@@ -302,12 +346,13 @@ This repository provides the broader project documentation and should act as a t
 
 If you are looking for the essentials:
 
-- Name: Search123
-- Model: SearXNG-inspired metasearch
-- Public URL: https://search123.dpdns.org/
-- Uptime status: https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/
-- Website: https://www.cheesy-studios.22web.org/homepagina
-- Privacy Policy: https://cheesy-studios.tawk.help/article/hieronder-onze-uitgebreide-privacyverklaring
-- License: GNU Affero General Public License v3.0 (AGPL-3.0)
+- **Name:** Search123
+- **Model:** SearXNG-inspired metasearch
+- **Public URL:** https://search123.dpdns.org/
+- **Website:** https://kaasplank1234.github.io/Search123/
+- **Uptime status:** https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/
+- **Cheesy Studios:** https://www.cheesy-studios.22web.org/homepagina
+- **Privacy Policy:** https://cheesy-studios.tawk.help/article/hieronder-onze-uitgebreide-privacyverklaring
+- **License:** GNU Affero General Public License v3.0 (AGPL-3.0)
 
 Search123 is a public-facing search project with a focus on usable retrieval, privacy awareness, and maintainable operational design.
