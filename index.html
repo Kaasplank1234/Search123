@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="-hHUPBaPVik6wKz1dvZddtDry-txJ1pUB88rbXdmGo0" />
-    <meta name="description" content="Search123 - A privacy-focused metasearch engine inspired by SearXNG. No tracking, no profiling, no data sales. Open source!">
+    <meta name="description" content="Search123 is a privacy-conscious metasearch experience powered by SearXNG, with transparent hosting and open-source project practices.">
     <meta name="theme-color" content="#1a73e8">
-    <title>Search123 - Privacy-Focused Search</title>
+    <title>Search123 - Privacy-Conscious Search</title>
     <style>
         * {
             margin: 0;
@@ -26,6 +26,9 @@
             --header-bg: rgba(255, 255, 255, 0.95);
             --card-bg: rgba(255, 255, 255, 0.15);
             --accent: #1a73e8;
+            --section-bg: rgba(255, 255, 255, 0.09);
+            --border-color: rgba(255, 255, 255, 0.3);
+            --light-text: #ffffff;
         }
 
         [data-theme="dark"] {
@@ -38,6 +41,13 @@
             --bg-gradient-start: #1e3a8a;
             --bg-gradient-end: #7c3aed;
             --accent: #60a5fa;
+            --section-bg: rgba(255, 255, 255, 0.08);
+            --border-color: rgba(255, 255, 255, 0.18);
+            --light-text: #f3f4f6;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -49,6 +59,10 @@
             display: flex;
             flex-direction: column;
             transition: background 0.3s, color 0.3s;
+        }
+
+        a {
+            color: inherit;
         }
 
         header {
@@ -160,7 +174,7 @@
             text-align: center;
             color: white;
             padding: 40px 20px 20px;
-            max-width: 800px;
+            max-width: 900px;
         }
 
         .hero h1 {
@@ -188,12 +202,17 @@
             border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
+        .open-source-badge a {
+            color: white;
+            text-decoration: underline;
+        }
+
         .cta-buttons {
             display: flex;
             gap: 15px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 60px;
+            margin-bottom: 30px;
         }
 
         .btn {
@@ -232,11 +251,12 @@
         .privacy-note {
             background: rgba(255, 255, 255, 0.15);
             padding: 20px;
-            border-radius: 8px;
-            margin: 40px auto;
-            max-width: 600px;
+            border-radius: 12px;
+            margin: 20px auto 0;
+            max-width: 760px;
             color: white;
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .privacy-note h3 {
@@ -246,17 +266,24 @@
 
         .privacy-note p {
             font-size: 1rem;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
-        .features-section {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 60px 20px;
+        .section-shell {
             width: 100%;
+            padding: 60px 20px;
+        }
+
+        .section-shell.light {
+            background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(10px);
         }
 
-        .features-container {
+        .section-shell.dark {
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        .content-container {
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -265,77 +292,65 @@
             text-align: center;
             color: white;
             font-size: 2.5rem;
-            margin-bottom: 50px;
+            margin-bottom: 24px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
+        .section-subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 760px;
+            margin: 0 auto 30px;
+            font-size: 1.05rem;
         }
 
-        .feature-card {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 30px;
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .feature-card p {
-            font-size: 1rem;
-            line-height: 1.6;
-            opacity: 0.95;
-        }
-
-        .specs-section {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 60px 20px;
-            width: 100%;
-            backdrop-filter: blur(10px);
-        }
-
-        .specs-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
+        .transparency-grid,
+        .features-grid,
         .specs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
         }
 
+        .transparency-card,
+        .feature-card,
         .spec-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 28px 24px;
+            border-radius: 14px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
             color: white;
-            border-left: 4px solid rgba(255, 255, 255, 0.5);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
+        .transparency-card:hover,
+        .feature-card:hover,
+        .spec-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+        }
+
+        .transparency-card h3,
+        .feature-card h3,
         .spec-item h4 {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-size: 1.35rem;
         }
 
+        .transparency-card p,
+        .feature-card p,
         .spec-item p {
-            font-size: 0.95rem;
-            opacity: 0.9;
+            font-size: 1rem;
+            opacity: 0.96;
+            line-height: 1.6;
+        }
+
+        .transparency-card a,
+        .spec-item a,
+        .feature-card a {
+            color: white;
+            text-decoration: underline;
         }
 
         .github-section {
@@ -348,7 +363,7 @@
         }
 
         .github-content {
-            max-width: 800px;
+            max-width: 860px;
             margin: 0 auto;
         }
 
@@ -396,6 +411,11 @@
             margin-bottom: 20px;
         }
 
+        .footer-section h3 {
+            font-size: 1.65rem;
+            margin-bottom: 12px;
+        }
+
         .footer-links {
             display: flex;
             justify-content: center;
@@ -436,7 +456,7 @@
 
         .copyright {
             font-size: 14px;
-            opacity: 0.8;
+            opacity: 0.85;
             margin-top: 20px;
         }
 
@@ -493,7 +513,9 @@
                 font-size: 2rem;
             }
 
-            .features-grid {
+            .features-grid,
+            .specs-grid,
+            .transparency-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -516,7 +538,7 @@
                         <img src="https://preconsent.io/api/badge/search123.dpdns.org.svg?style=compact&theme=dark" alt="Privacy Compliance Score - search123.dpdns.org" />
                     </a>
                     <div class="privacy-badge-note">
-                        Not an official AVG/GDPR compliance certification. This is an automated privacy/security test result from <a href="https://preconsent.io/verified/search123.dpdns.org" target="_blank" rel="noopener noreferrer">PreConsent.io</a>.
+                        Not an official compliance certification. This is an automated privacy/security test result from <a href="https://preconsent.io/verified/search123.dpdns.org" target="_blank" rel="noopener noreferrer">Preconsent</a>.
                     </div>
                 </div>
 
@@ -528,12 +550,12 @@
     <main>
         <div class="hero">
             <div class="open-source-badge">
-                ✨ Open Source - View the full source code on <a href="https://github.com/Kaasplank1234/Search123" style="color: white; text-decoration: underline;">GitHub</a>
+                ✨ Powered by SearXNG • Maintained by <a href="https://www.cheesy-studios.22web.org/homepagina">Cheesy Studios</a>
             </div>
             
             <h1>Search123</h1>
-            <p>Privacy-Focused Metasearch Engine</p>
-            <p style="font-size: 1.1rem; margin-bottom: 30px;">Search the web without tracking, profiling, or data collection</p>
+            <p>Privacy-conscious metasearch, powered by SearXNG</p>
+            <p style="font-size: 1.1rem; margin-bottom: 30px;">Search123 aims to minimize unnecessary data collection and present a clear, transparent search experience. Technical services such as Cloudflare may process some data required to protect and deliver the site securely.</p>
 
             <div class="cta-buttons">
                 <a href="https://search123.dpdns.org/" class="btn btn-primary">Start Searching</a>
@@ -541,74 +563,108 @@
             </div>
 
             <div class="privacy-note">
-                <h3>🔒 Your Privacy Matters</h3>
+                <h3>🔒 Privacy-conscious operation</h3>
                 <p>
-                    Search123 does not track your searches, profile your behavior, or sell your data. 
-                    We believe in a web where privacy is the default, not a luxury.
+                    Search123 is designed to reduce unnecessary data collection and avoid intrusive tracking practices. However, privacy and security are not absolute guarantees: services involved in hosting and protection, including Cloudflare, may process technical information and use essential cookies required for site delivery and security.
                 </p>
             </div>
         </div>
     </main>
 
-    <section class="features-section">
-        <div class="features-container">
-            <h2 class="section-title">🚀 Key Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>🔒 Zero Tracking</h3>
-                    <p>We don't track your searches, create profiles, or collect personal data. Your privacy is guaranteed.</p>
+    <section class="section-shell light">
+        <div class="content-container">
+            <h2 class="section-title">Transparency &amp; Technology</h2>
+            <p class="section-subtitle">
+                Search123 is an open-source metasearch project maintained by Cheesy Studios and powered by SearXNG, an open-source metasearch engine. The project aims to keep its technical foundations clear, open to inspection, and respectful of user privacy while acknowledging the operational realities of secure hosting and protection services.
+            </p>
+            <div class="transparency-grid">
+                <div class="transparency-card">
+                    <h3>🔧 Search engine</h3>
+                    <p>Search123 uses <a href="https://github.com/searxng/searxng" target="_blank" rel="noopener noreferrer">SearXNG</a> as its underlying metasearch engine.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>🌐 Metasearch</h3>
-                    <p>Aggregates results from multiple search engines to give you the best and most comprehensive results.</p>
+                <div class="transparency-card">
+                    <h3>🏢 Maintainer</h3>
+                    <p>Search123 is maintained by <a href="https://www.cheesy-studios.22web.org/homepagina">Cheesy Studios</a>, which manages hosting, deployment, and project maintenance.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>⚡ Fast & Efficient</h3>
-                    <p>Lightning-fast search results powered by SearXNG technology for an optimal user experience.</p>
+                <div class="transparency-card">
+                    <h3>📜 License</h3>
+                    <p>Search123 is published under the <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener noreferrer">GNU Affero General Public License v3.0</a>.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>🔐 Secure</h3>
-                    <p>All communications are encrypted and we maintain strict security standards to protect your data.</p>
+                <div class="transparency-card">
+                    <h3>🛡️ Security protection</h3>
+                    <p>Cloudflare and similar infrastructure services may process technical information and set essential cookies to help protect the site and deliver a secure browsing experience.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>🎨 Clean Interface</h3>
-                    <p>Simple, intuitive design focused on usability. No ads, no clutter, just pure search functionality.</p>
+                <div class="transparency-card">
+                    <h3>💡 Privacy approach</h3>
+                    <p>Search123 aims to reduce unnecessary data collection, avoid intrusive tracking, and be transparent about how it operates and what technical services are involved.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>📱 Mobile Friendly</h3>
-                    <p>Works seamlessly on all devices - desktop, tablet, or mobile. Responsive and accessible.</p>
+                <div class="transparency-card">
+                    <h3>📡 Project visibility</h3>
+                    <p>The source repository is publicly available on <a href="https://github.com/Kaasplank1234/Search123">GitHub</a>, and service status is published through the <a href="https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/">uptime dashboard</a>.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="specs-section">
-        <div class="specs-container">
-            <h2 class="section-title">📊 Technical Specifications</h2>
+    <section class="section-shell dark">
+        <div class="content-container">
+            <h2 class="section-title">🚀 Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🔒 Privacy-aware design</h3>
+                    <p>Search123 is designed with privacy-conscious defaults and a transparent operational approach. It avoids unnecessary collection and profiling where possible.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌐 Metasearch</h3>
+                    <p>Aggregates results from multiple sources to give a broader overview of the web while remaining simple and usable.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⚡ Open-source foundation</h3>
+                    <p>Powered by the open-source <a href="https://github.com/searxng/searxng" target="_blank" rel="noopener noreferrer">SearXNG</a> platform and maintained in a public GitHub repository.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🛡️ Secure delivery</h3>
+                    <p>Search123 uses hosting and protection services that may process technical metadata and essential cookies as part of secure delivery and abuse prevention.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎨 Clean interface</h3>
+                    <p>Simple, readable layout with responsive styling, accessible contrast, and a consistent structure across devices.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📱 Mobile friendly</h3>
+                    <p>Built to remain usable across desktop, tablet, and mobile experience without adding unnecessary JavaScript or heavy dependencies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-shell light">
+        <div class="content-container">
+            <h2 class="section-title">📊 Technical Overview</h2>
             <div class="specs-grid">
                 <div class="spec-item">
-                    <h4>🔧 Based On</h4>
-                    <p>Built on SearXNG, a powerful open-source metasearch engine platform.</p>
+                    <h4>🔧 Powered by</h4>
+                    <p><a href="https://github.com/searxng/searxng" target="_blank" rel="noopener noreferrer">SearXNG</a>, an open-source metasearch engine.</p>
                 </div>
                 <div class="spec-item">
-                    <h4>📜 License</h4>
-                    <p>GNU Affero General Public License v3.0 (AGPL-3.0) - Fully open source and free.</p>
+                    <h4>📜 Licensing</h4>
+                    <p>Search123 is distributed under the <a href="https://github.com/Kaasplank1234/Search123/blob/main/LICENSE">GNU AGPL-3.0</a>.</p>
                 </div>
                 <div class="spec-item">
-                    <h4>🌍 Multiple Search Sources</h4>
-                    <p>Aggregates results from Google, Bing, DuckDuckGo, and many other search engines.</p>
+                    <h4>🌍 Open development</h4>
+                    <p>The project is openly maintained on <a href="https://github.com/Kaasplank1234/Search123">GitHub</a> and welcomes review and contribution.</p>
                 </div>
                 <div class="spec-item">
-                    <h4>💾 No Storage</h4>
-                    <p>Search queries are not stored, logged, or retained in any database.</p>
+                    <h4>💾 Data handling</h4>
+                    <p>Search123 aims to minimize unnecessary data collection. Certain hosting and security services may still process technical information required for safe operation.</p>
                 </div>
                 <div class="spec-item">
-                    <h4>🛡️ Privacy Respecting</h4>
-                    <p>Search123 does not use cookies for advertising or profiling. Security services such as Cloudflare may use essential cookies to protect the website.</p>
+                    <h4>🛡️ Security services</h4>
+                    <p>Cloudflare protection can involve essential cookies and technical logs needed to secure the website and reduce abuse.</p>
                 </div>
                 <div class="spec-item">
-                    <h4>⚙️ Customizable</h4>
-                    <p>Full source code available for self-hosting and customization.</p>
+                    <h4>⚙️ Transparency</h4>
+                    <p>Service status is publicly visible via the <a href="https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/">uptime monitoring dashboard</a>.</p>
                 </div>
             </div>
         </div>
@@ -616,12 +672,11 @@
 
     <section class="github-section">
         <div class="github-content">
-            <h2>📖 Open Source & Transparent</h2>
+            <h2>📖 Open source &amp; transparent</h2>
             <p>
-                Search123 is completely open source! The entire codebase is available on GitHub for you to inspect, 
-                audit, fork, and contribute to. We believe in transparency and community-driven development.
+                Search123 is an open-source project maintained by Cheesy Studios. The repository is publicly available on GitHub for inspection, contribution, and review, and the project remains aligned with transparent documentation and open-source software practices.
             </p>
-            <a href="https://github.com/Kaasplank1234/Search123" class="github-btn">View Full Source Code on GitHub →</a>
+            <a href="https://github.com/Kaasplank1234/Search123" class="github-btn">View Search123 on GitHub →</a>
         </div>
     </section>
 
@@ -629,36 +684,36 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Search123</h3>
-                <p>A privacy-conscious metasearch engine inspired by SearXNG</p>
+                <p>Search123 is hosted by Cheesy Studios and powered by SearXNG.</p>
             </div>
 
             <div class="footer-links">
                 <a href="https://search123.dpdns.org/">Search</a>
                 <a href="https://github.com/Kaasplank1234/Search123">GitHub Repository</a>
-                <a href="https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/">Status</a>
+                <a href="https://github.com/Kaasplank1234/Search123/issues">Issue Tracker</a>
+                <a href="https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/">Uptime Status</a>
                 <a href="https://cheesy-studios.tawk.help/article/hieronder-onze-uitgebreide-privacyverklaring">Privacy Policy</a>
+                <a href="https://github.com/searxng/searxng">SearXNG</a>
+                <a href="https://www.gnu.org/licenses/agpl-3.0.html">GNU AGPL-3.0</a>
             </div>
 
-            <a href="https://www.cheesy-studios.22web.org/homepagina" class="cheesy-studios-btn">💖 Made with love by Cheesy Studios</a>
+            <a href="https://www.cheesy-studios.22web.org/homepagina" class="cheesy-studios-btn">💖 Maintained by Cheesy Studios</a>
 
             <div class="copyright">
-                <p>&copy; 2024 Cheesy Studios. Search123 is licensed under the <a href="https://github.com/Kaasplank1234/Search123/blob/main/LICENSE">GNU Affero General Public License v3.0 (AGPL-3.0)</a></p>
-                <p>Inspired by <a href="https://github.com/searxng/searxng">SearXNG</a></p>
+                <p>&copy; 2024 Cheesy Studios. Search123 is licensed under the <a href="https://github.com/Kaasplank1234/Search123/blob/main/LICENSE">GNU Affero General Public License v3.0 (AGPL-3.0)</a>.</p>
+                <p>Search123 is hosted by Cheesy Studios and powered by <a href="https://github.com/searxng/searxng">SearXNG</a>.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Theme toggle functionality
         const themeToggle = document.getElementById('themeToggle');
         const html = document.documentElement;
         
-        // Check for saved theme preference or default to light
         const currentTheme = localStorage.getItem('theme') || 'light';
         html.setAttribute('data-theme', currentTheme);
         updateThemeIcon(currentTheme);
 
-        // Toggle theme on button click
         themeToggle.addEventListener('click', () => {
             const theme = html.getAttribute('data-theme');
             const newTheme = theme === 'light' ? 'dark' : 'light';
@@ -667,12 +722,10 @@
             updateThemeIcon(newTheme);
         });
 
-        // Update icon based on theme
         function updateThemeIcon(theme) {
             themeToggle.textContent = theme === 'light' ? '🌙' : '☀️';
         }
 
-        // Respect system preference if no saved preference
         if (!localStorage.getItem('theme')) {
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             const theme = prefersDark ? 'dark' : 'light';
