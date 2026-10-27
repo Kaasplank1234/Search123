@@ -18,7 +18,7 @@ These files are example infrastructure for self-hosted review and should be veri
 - Docker Engine
 - Docker Compose v2 or equivalent
 - a valid domain or reverse-proxy layer if the instance will be publicly exposed
-- a secure `SEARXNG_SECRET_KEY` value
+- a secure `SEARXNG_SECRET` value
 
 ## Quick start
 
@@ -28,7 +28,7 @@ These files are example infrastructure for self-hosted review and should be veri
    cp searxng/.env.example searxng/.env
    ```
 
-2. Edit `searxng/.env` and set a unique cryptographically random `SEARXNG_SECRET_KEY` (for example, generate one locally using `openssl rand -hex 32`). Never commit `.env`. The Compose configuration refuses an empty key. Confirm that your selected SearXNG image consumes `SEARXNG_SECRET_KEY` as intended; otherwise provision the secret in a local untracked configuration.
+2. Edit `searxng/.env` and set a unique cryptographically random `SEARXNG_SECRET` (for example, generate one locally using `openssl rand -hex 32`). Never commit `.env`. The Compose configuration refuses an empty key. Confirm that your selected SearXNG image consumes `SEARXNG_SECRET` as intended; otherwise provision the secret in a local untracked configuration.
 
 3. Update `SEARXNG_BASE_URL` to match your actual public URL. The custom template is mounted read-only from `searxng/templates/simple/base.html`; verify compatibility with the exact upstream SearXNG image before use.
 
@@ -58,7 +58,7 @@ The default config under `searxng/config/settings.yml` preserves Search123 brand
 
 Key items to verify:
 
-- `SEARXNG_SECRET_KEY` is not empty and is not committed to source control
+- `SEARXNG_SECRET` is not empty and is not committed to source control
 - `SEARXNG_BASE_URL` matches the instance domain
 - privacy policy, issue tracker, and documentation URLs are correct
 - Docker ports are not exposed directly unless you intentionally want that setup
