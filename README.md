@@ -386,7 +386,7 @@ Download the Search123 extension for Firefox!
 
 Make Search123 your default search engine and search directly from Firefox's address bar.
 
-Download Search123 for Firefox (GitHub Releases)
+[Download Search123 for Firefox](https://github.com/Kaasplank1234/Search123/releases/download/Release/Search123_Firefox_1.0.2.xpi)
 
 ### Safari
 
