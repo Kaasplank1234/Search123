@@ -18,7 +18,6 @@ services:
     environment:
       - SEARXNG_BASE_URL=${SEARXNG_BASE_URL:-https://search.example.org/}
       - SEARXNG_SECRET_KEY=${SEARXNG_SECRET_KEY:?Set SEARXNG_SECRET_KEY in .env}
-      - FORCE_OWNERSHIP=true
     depends_on:
       - valkey
 
