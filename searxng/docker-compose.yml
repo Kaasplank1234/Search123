@@ -1,0 +1,39 @@
+services:
+  searxng:
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"
+    restart: unless-stopped
+    container_name: search123-searxng
+    # Pin a tested image digest before production use; templates can change upstream.
+    image: docker.io/searxng/searxng:latest
+    ports:
+      - "127.0.0.1:8080:8080/tcp"
+    volumes:
+      - ./config:/etc/searxng:ro
+      - ./templates/simple/base.html:/usr/local/searxng/searx/templates/simple/base.html:ro
+      - ./data:/var/cache/searxng
+    environment:
+      - SEARXNG_BASE_URL=${SEARXNG_BASE_URL:-https://search.example.org/}
+      - SEARXNG_SECRET=${SEARXNG_SECRET:?Set SEARXNG_SECRET in .env}
+    depends_on:
+      - valkey
+    # Only enable public access after reviewing bot protection and rate limiting.
+
+  valkey:
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"
+    restart: unless-stopped
+    container_name: search123-valkey
+    image: docker.io/valkey/valkey:8.0-alpine
+    volumes:
+      - valkey-data:/data
+    command: valkey-server --save 30 1 --loglevel warning
+
+volumes:
+  valkey-data:

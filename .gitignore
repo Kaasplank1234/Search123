@@ -1,5 +1,6 @@
 # Environment and configuration files
 *.env
+searxng/.env
 *.env.local
 *.env.*.local
 *.secret

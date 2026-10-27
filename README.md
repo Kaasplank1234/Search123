@@ -401,3 +401,15 @@ Make Search123 your default search engine and search directly from Firefox's add
 - Example search URL: https://search123.dpdns.org/search?q=privacy
 
 Once set as default, typing in the address bar will use Search123.
+
+
+## Public SearXNG integration (example configuration)
+
+This repository also publishes Search123-specific example integration files under `searxng/`:
+
+- `searxng/config/settings.yml` — public example settings, not a live server backup
+- `searxng/templates/simple/base.html` — customized SearXNG Simple template
+- `searxng/docker-compose.yml` and `searxng/.env.example` — local example stack
+- `docs/DEPLOYMENT.md` — configuration and security review guidance
+
+The deployed SearXNG version and corresponding source must be identified and made available as required by AGPL-3.0. See the upstream source at https://github.com/searxng/searxng. This repository alone has not been verified to contain all corresponding source for the live instance.

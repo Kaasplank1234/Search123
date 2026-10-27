@@ -5,16 +5,27 @@ use_default_settings: true
 
 ui:
   default_theme: simple
-  custom_css: /etc/searxng/custom.css
+
 general:
   instance_name: "Search123"
-server:
-  secret_key: "CHANGE_ME_TO_A_RANDOM_STRING"
-  image_proxy: true
+  privacypolicy_url: "https://cheesy-studios.tawk.help/article/hieronder-onze-uitgebreide-privacyverklaring"
 
+server:
+  # Secret is supplied by the container environment (SEARXNG_SECRET).
+  # Verify support against the selected upstream SearXNG image before deployment.
+  image_proxy: true
+  public_instance: false
+
+valkey:
+  url: valkey://valkey:6379/0
 
 brand:
+  issue_url: "https://github.com/Kaasplank1234/Search123/issues"
+  new_issue_url: "https://github.com/Kaasplank1234/Search123/issues/new/choose"
+  docs_url: "https://github.com/Kaasplank1234/Search123"
+  wiki_url: "https://github.com/Kaasplank1234/Search123/wiki"
   custom:
     links:
-      Made with love by Cheesy-Studios: "https://www.cheesy-studios.22web.org/"
-      Need help? Click here: "https://github.com/Kaasplank1234/Search123"
+      Search123 website: "https://kaasplank1234.github.io/Search123/"
+      Cheesy Studios: "https://www.cheesy-studios.22web.org/homepagina"
+      GitHub project: "https://github.com/Kaasplank1234/Search123"
