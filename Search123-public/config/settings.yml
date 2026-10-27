@@ -1,0 +1,18 @@
+use_default_settings: true
+
+general:
+  instance_name: "Search123"
+
+server:
+  secret_key: "CHANGE_ME_BEFORE_DEPLOYMENT"
+  image_proxy: true
+
+brand:
+  issue_url: "https://code.example.org/search123"
+  new_issue_url: "https://code.example.org/search123"
+  docs_url: "https://docs.example.org/"
+  public_instances: "https://docs.example.org/"
+  wiki_url: "https://code.example.org/search123"
+  custom:
+    links:
+      Made with love by Project Team: "https://project.example.org/"
