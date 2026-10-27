@@ -12,7 +12,7 @@ general:
   privacypolicy_url: "https://cheesy-studios.tawk.help/article/hieronder-onze-uitgebreide-privacyverklaring"
 
 server:
-  secret_key: "CHANGE_ME_TO_A_RANDOM_STRING"
+  # Set SEARXNG_SECRET_KEY in the runtime environment; never commit a real key.
   image_proxy: true
   public_instance: false
 
