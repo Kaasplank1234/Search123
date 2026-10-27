@@ -5,14 +5,14 @@ use_default_settings: true
 
 ui:
   default_theme: simple
-  custom_css: /etc/searxng/custom.css
 
 general:
   instance_name: "Search123"
   privacypolicy_url: "https://cheesy-studios.tawk.help/article/hieronder-onze-uitgebreide-privacyverklaring"
 
 server:
-  # Set SEARXNG_SECRET_KEY in the runtime environment; never commit a real key.
+  # Secret is supplied by the container environment (SEARXNG_SECRET_KEY).
+  # Verify support against the selected upstream SearXNG image before deployment.
   image_proxy: true
   public_instance: false
 
