@@ -28,23 +28,29 @@ These files are example infrastructure for self-hosted review and should be veri
    cp searxng/.env.example searxng/.env
    ```
 
-2. Edit `searxng/.env` and replace the example values with your own secure settings.
+2. Edit `searxng/.env` and set a unique cryptographically random `SEARXNG_SECRET_KEY` (for example, generate one locally using `openssl rand -hex 32`). Never commit `.env`. The Compose configuration refuses an empty key. Confirm that your selected SearXNG image consumes `SEARXNG_SECRET_KEY` as intended.
 
-3. Update `SEARXNG_BASE_URL` to match your actual public URL.
+3. Update `SEARXNG_BASE_URL` to match your actual public URL. The custom template is mounted read-only from `searxng/templates/simple/base.html`; verify compatibility with the exact upstream SearXNG image before use.
 
-4. Start the stack:
+4. Validate the Compose file before starting:
+
+   ```bash
+   docker compose --env-file searxng/.env -f searxng/docker-compose.yml config --quiet
+   ```
+
+5. Start the stack:
 
    ```bash
    docker compose -f searxng/docker-compose.yml up -d
    ```
 
-5. Review the logs:
+6. Review the logs:
 
    ```bash
    docker compose -f searxng/docker-compose.yml logs -f searxng
    ```
 
-6. Confirm the instance is reachable over the local bind or your reverse proxy.
+7. Confirm the instance is reachable over the local bind or your reverse proxy.
 
 ## Configuration notes
 
@@ -79,7 +85,7 @@ The expected source-availability practices are:
 - publish the modified source for the combined web service if it is a networked application
 - point users to the project repository and license files
 
-The canonical project source for Search123 is this GitHub repository. The upstream project source is available at:
+This repository publishes Search123-specific example configuration and template modifications; it is not verified as the complete corresponding source for the running instance. Identify the exact deployed SearXNG image version/digest and make the applicable corresponding source available to network users. The upstream project source is available at:
 
 - https://github.com/searxng/searxng
 
