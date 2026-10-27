@@ -382,13 +382,11 @@ You can make Search123 your default search engine in most browsers by adding it 
 
 ### Firefox
 
-1. Open Firefox settings.
-2. Go to the “Search” section.
-3. Under “Default Search Engine,” choose “Search123”.
-4. If Search123 is not listed:
-   - Visit https://search123.dpdns.org/
-   - Click the search box
-   - Add it as a search engine from the browser prompt, or select it from the available search options
+Download the Search123 extension for Firefox!
+
+Make Search123 your default search engine and search directly from Firefox's address bar.
+
+Download Search123 for Firefox (GitHub Releases)
 
 ### Safari
 
