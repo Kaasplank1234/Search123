@@ -19,9 +19,9 @@ Search123 uses SearXNG as the underlying technology and preserves the upstream p
 
 ## Search123 open-source integration
 
-The repository includes a reviewed SearXNG setup under `searxng/` and a safe example deployment configuration for local testing and self-hosting. These files were reviewed for obvious secrets, placeholder values, and duplicate production content before being integrated.
+The repository includes a reviewed SearXNG setup under `searxng/` and a safe example deployment configuration for local testing and self-hosting. These files are public examples, not a verified reproduction of the live deployment. Review them and their upstream compatibility before use.
 
-The exported public-source files were treated as a sanitized example reference and were not copied blindly into a production deployment.
+The temporary export staging directory has been removed from the current repository tree.
 
 ## Third-party components
 
