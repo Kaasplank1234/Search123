@@ -17,9 +17,10 @@ services:
       - ./data:/var/cache/searxng
     environment:
       - SEARXNG_BASE_URL=${SEARXNG_BASE_URL:-https://search.example.org/}
-      - SEARXNG_SECRET_KEY=${SEARXNG_SECRET_KEY:?Set SEARXNG_SECRET_KEY in .env}
+      - SEARXNG_SECRET=${SEARXNG_SECRET:?Set SEARXNG_SECRET in .env}
     depends_on:
       - valkey
+    # Only enable public access after reviewing bot protection and rate limiting.
 
   valkey:
     logging:
