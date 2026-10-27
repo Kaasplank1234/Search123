@@ -7,11 +7,13 @@ services:
         max-file: "2"
     restart: unless-stopped
     container_name: search123-searxng
+    # Pin a tested image digest before production use; templates can change upstream.
     image: docker.io/searxng/searxng:latest
     ports:
       - "127.0.0.1:8080:8080/tcp"
     volumes:
       - ./config:/etc/searxng:ro
+      - ./templates/simple/base.html:/usr/local/searxng/searx/templates/simple/base.html:ro
       - ./data:/var/cache/searxng
     environment:
       - SEARXNG_BASE_URL=${SEARXNG_BASE_URL:-https://search.example.org/}
