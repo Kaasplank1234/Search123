@@ -28,7 +28,7 @@ These files are example infrastructure for self-hosted review and should be veri
    cp searxng/.env.example searxng/.env
    ```
 
-2. Edit `searxng/.env` and set a unique cryptographically random `SEARXNG_SECRET_KEY` (for example, generate one locally using `openssl rand -hex 32`). Never commit `.env`. The Compose configuration refuses an empty key. Confirm that your selected SearXNG image consumes `SEARXNG_SECRET_KEY` as intended.
+2. Edit `searxng/.env` and set a unique cryptographically random `SEARXNG_SECRET_KEY` (for example, generate one locally using `openssl rand -hex 32`). Never commit `.env`. The Compose configuration refuses an empty key. Confirm that your selected SearXNG image consumes `SEARXNG_SECRET_KEY` as intended; otherwise provision the secret in a local untracked configuration.
 
 3. Update `SEARXNG_BASE_URL` to match your actual public URL. The custom template is mounted read-only from `searxng/templates/simple/base.html`; verify compatibility with the exact upstream SearXNG image before use.
 
@@ -88,6 +88,10 @@ The expected source-availability practices are:
 This repository publishes Search123-specific example configuration and template modifications; it is not verified as the complete corresponding source for the running instance. Identify the exact deployed SearXNG image version/digest and make the applicable corresponding source available to network users. The upstream project source is available at:
 
 - https://github.com/searxng/searxng
+
+## Public export cleanup
+
+Temporary export archives and the `Search123-public/` staging directory are intentionally excluded from the final repository tree. The exported logo-generation script and generated logo were not incorporated because the example deployment uses the upstream favicon and no logo override is configured. The live VPS is not changed by this repository cleanup. Historical Git commits may still contain deleted staging files.
 
 ## Not for production use without review
 
