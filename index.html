@@ -700,13 +700,16 @@
             <a href="https://www.cheesy-studios.22web.org/homepagina" class="cheesy-studios-btn">💖 Maintained by Cheesy Studios</a>
 
             <div class="copyright">
-                <p>&copy; 2027 Cheesy Studios. Search123 is licensed under the <a href="https://github.com/Kaasplank1234/Search123/blob/main/LICENSE">GNU Affero General Public License v3.0 (AGPL-3.0)</a>.</p>
+                <p>&copy; <span id="copyright-year">2027</span> Cheesy Studios. Search123 is licensed under the <a href="https://github.com/Kaasplank1234/Search123/blob/main/LICENSE">GNU Affero General Public License v3.0 (AGPL-3.0)</a>.</p>
                 <p>Search123 is hosted by Cheesy Studios and powered by <a href="https://github.com/searxng/searxng">SearXNG</a>.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Keep the footer copyright year current automatically.
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
         const themeToggle = document.getElementById('themeToggle');
         const html = document.documentElement;
         
