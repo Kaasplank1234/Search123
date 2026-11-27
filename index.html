@@ -1,1 +1,247 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="-hHUPBaPVik6wKz1dvZddtDry-txJ1pUB88rbXdmGo0">
+  <meta name="description" content="Search123 is a privacy-conscious metasearch experience powered by SearXNG, with transparent hosting and open-source project practices.">
+  <meta name="theme-color" content="#1a73e8">
+  <title>Search123 - Privacy-Conscious Search</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --text: #333; --muted: #666; --header: rgba(255,255,255,.95);
+      --accent: #1a73e8; --start: #667eea; --end: #764ba2;
+      --border: rgba(255,255,255,.25);
+    }
+    [data-theme="dark"] {
+      --text: #e0e0e0; --muted: #b0b0b0; --header: rgba(26,26,26,.95);
+      --accent: #60a5fa; --start: #1e3a8a; --end: #7c3aed;
+      --border: rgba(255,255,255,.18);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh; display: flex; flex-direction: column;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6; color: var(--text);
+      background: linear-gradient(135deg,var(--start),var(--end));
+      transition: background .3s,color .3s;
+    }
+    a { color: inherit; }
+    header { background: var(--header); padding: 16px 0; box-shadow: 0 2px 10px #0002; }
+    .header-content { max-width: 1200px; margin: auto; padding: 0 20px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .logo { color:var(--accent); font-size:24px; font-weight:700; text-decoration:none; }
+    .header-controls { display:flex; align-items:center; gap:18px; }
+    nav { display:flex; align-items:center; gap:22px; }
+    nav a { text-decoration:none; font-size:14px; }
+    nav a:hover { color:var(--accent); }
+    .theme-toggle { width:44px; height:44px; border:2px solid var(--text); border-radius:50%; background:none; color:var(--text); font-size:20px; cursor:pointer; }
+    .theme-toggle:hover { background:var(--accent); border-color:var(--accent); color:#fff; }
+    main { flex:1; }
+    .hero { max-width:950px; margin:auto; padding:64px 20px 56px; text-align:center; color:#fff; }
+    .open-source-badge { display:inline-block; margin-bottom:22px; padding:8px 16px; border:1px solid #ffffff80; border-radius:50px; background:#ffffff40; font-size:14px; font-weight:600; }
+    .open-source-badge a { color:#fff; }
+    h1 { font-size:clamp(2.5rem,7vw,3.8rem); margin-bottom:12px; text-shadow:0 2px 4px #0003; }
+    .hero-lead { font-size:clamp(1.2rem,3vw,1.55rem); margin-bottom:18px; }
+    .hero-copy { max-width:780px; margin:0 auto 28px; }
+    .cta-buttons { display:flex; justify-content:center; flex-wrap:wrap; gap:14px; margin:28px 0; }
+    .btn { display:inline-block; padding:12px 28px; border-radius:6px; font-weight:650; text-decoration:none; transition:transform .2s,box-shadow .2s; }
+    .btn:hover { transform:translateY(-2px); box-shadow:0 8px 20px #0003; }
+    .btn-primary { background:#fff; color:var(--accent); }
+    .btn-secondary { background:#ffffff30; border:2px solid #fff; color:#fff; }
+    .privacy-note { max-width:760px; margin:24px auto 0; padding:20px; border:1px solid #ffffff40; border-radius:12px; background:#ffffff26; text-align:left; }
+    .privacy-note h2 { font-size:1.2rem; margin-bottom:8px; }
+    .section-shell { padding:56px 20px; }
+    .section-shell.light { background:#ffffff12; backdrop-filter:blur(10px); }
+    .section-shell.dark { background:#00000018; }
+    .content-container { max-width:1200px; margin:auto; }
+    .section-title { margin-bottom:20px; text-align:center; color:#fff; font-size:clamp(1.8rem,4vw,2.5rem); text-shadow:0 2px 4px #0003; }
+    .section-subtitle { max-width:780px; margin:0 auto 30px; text-align:center; color:#ffffffe8; }
+    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); gap:20px; }
+    .card { padding:24px; border:1px solid var(--border); border-radius:14px; background:#ffffff20; color:#fff; backdrop-filter:blur(8px); transition:transform .2s,box-shadow .2s; }
+    .card:hover { transform:translateY(-4px); box-shadow:0 12px 30px #0003; }
+    .card h3 { margin-bottom:10px; font-size:1.2rem; }
+    .card p { line-height:1.65; }
+    .card a { color:#fff; text-decoration:underline; }
+    .github-section { padding:56px 20px; background:#ffffff1a; text-align:center; color:#fff; }
+    .github-content { max-width:850px; margin:auto; }
+    .github-section h2 { margin-bottom:14px; font-size:2rem; }
+    .github-section p { margin-bottom:24px; }
+    .github-btn { display:inline-block; padding:14px 32px; border-radius:6px; background:#fff; color:var(--accent); text-decoration:none; font-weight:700; }
+    .recognition-section { padding:52px 20px; background:#00000018; text-align:center; color:#fff; }
+    .recognition-section > p { max-width:700px; margin:0 auto 24px; color:#ffffffe8; }
+    .cheesy-cert { display:block; width:min(100%,340px); margin:16px auto; color:inherit; text-decoration:none; font-family:Arial,sans-serif; text-align:center; }
+    .cert-border { padding:22px 14px; border:3px solid #d6b45b; outline:1px solid #d6b45b; outline-offset:4px; background:#101827; color:#fff; transition:transform .2s,box-shadow .2s; }
+    .cheesy-cert:hover .cert-border,.cheesy-cert:focus-visible .cert-border { transform:translateY(-4px); box-shadow:0 10px 28px #0005; }
+    .cheesy-cert:focus-visible { outline:3px solid #fff; outline-offset:9px; }
+    .cert-brand { color:#e7c875; font-size:14px; font-weight:900; letter-spacing:3px; }
+    .cert-shield { margin:14px 0 8px; font-size:48px; }
+    .cert-title { color:#e7c875; font-size:23px; font-weight:900; letter-spacing:1px; }
+    .cert-second { font-size:27px; }
+    .cert-line { width:75%; height:1px; margin:16px auto; background:#d6b45b; }
+    .cert-recipient { font-size:20px; font-weight:900; letter-spacing:4px; }
+    .cert-footer,.cert-seal { font-size:9px; letter-spacing:1px; }
+    .cert-footer { margin-top:10px; color:#c1cad8; }
+    .cert-seal { margin-top:16px; color:#e7c875; }
+    .recognition-disclaimer { margin:24px auto 0; font-size:.85rem; }
+    footer { padding:38px 20px; background:#0003; text-align:center; color:#fff; }
+    .footer-content { max-width:1200px; margin:auto; }
+    .footer-links { display:flex; justify-content:center; flex-wrap:wrap; gap:12px 20px; margin:18px 0; }
+    .footer-links a { color:#fff; text-decoration:none; }
+    .footer-links a:hover { text-decoration:underline; }
+    .cheesy-studios-btn { display:inline-block; margin:12px 0; padding:12px 28px; border-radius:50px; background:linear-gradient(135deg,#f093fb,#f5576c); color:#fff; text-decoration:none; font-weight:700; }
+    .copyright { margin-top:18px; font-size:14px; opacity:.9; }
+    @media(max-width:768px) {
+      .header-content { flex-wrap:wrap; justify-content:center; }
+      .header-controls { flex-wrap:wrap; justify-content:center; }
+      nav { display:none; }
+      .hero { padding-top:44px; }
+      .cta-buttons { flex-direction:column; align-items:center; }
+      .btn { width:min(100%,300px); }
+    }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto !important; transition:none !important; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="#top" class="logo">Search123</a>
+      <div class="header-controls">
+        <nav aria-label="Main navigation">
+          <a href="https://search123.dpdns.org/">Search Now</a>
+          <a href="https://github.com/Kaasplank1234/Search123">GitHub</a>
+          <a href="https://www.cheesy-studios.22web.org/homepagina">Cheesy Studios</a>
+          <a href="https://www.cheesy-studios.22web.org/neem-contact-met-ons-op-faq">Contact</a>
+        </nav>
+        <button class="theme-toggle" id="themeToggle" type="button" title="Toggle dark/light mode" aria-label="Toggle dark or light mode">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="open-source-badge">✨ Powered by SearXNG • Maintained by <a href="https://www.cheesy-studios.22web.org/homepagina">Cheesy Studios</a></div>
+      <h1 id="page-title">Search123</h1>
+      <p class="hero-lead">Privacy-conscious metasearch, powered by SearXNG</p>
+      <p class="hero-copy">Search123 aims to minimize unnecessary data collection and present a clear, transparent search experience. Hosting and security services may process technical information needed to protect and deliver the site.</p>
+      <div class="cta-buttons">
+        <a href="https://search123.dpdns.org/" class="btn btn-primary">Start Searching</a>
+        <a href="https://github.com/Kaasplank1234/Search123" class="btn btn-secondary">View on GitHub</a>
+      </div>
+      <div class="privacy-note">
+        <h2>🔒 Privacy-conscious operation</h2>
+        <p>Search123 is designed to reduce unnecessary data collection and avoid intrusive tracking practices. Privacy and security are not absolute guarantees: hosting and protection services, including Cloudflare, may process technical information and use essential cookies required for site delivery and security.</p>
+      </div>
+    </section>
+
+    <section class="section-shell light" aria-labelledby="transparency-title">
+      <div class="content-container">
+        <h2 class="section-title" id="transparency-title">Transparency &amp; Technology</h2>
+        <p class="section-subtitle">Search123 is an open-source metasearch project maintained by Cheesy Studios and powered by SearXNG. We aim to keep the technical foundations clear and open to inspection while acknowledging the operational realities of secure hosting.</p>
+        <div class="cards">
+          <article class="card"><h3>🔧 Search engine</h3><p>Search123 uses <a href="https://github.com/searxng/searxng" target="_blank" rel="noopener noreferrer">SearXNG</a> as its underlying metasearch engine.</p></article>
+          <article class="card"><h3>🏢 Maintainer</h3><p>Search123 is maintained by <a href="https://www.cheesy-studios.22web.org/homepagina">Cheesy Studios</a>, which manages hosting, deployment, and project maintenance.</p></article>
+          <article class="card"><h3>📜 License</h3><p>Search123 is published under the <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener noreferrer">GNU Affero General Public License v3.0</a>.</p></article>
+          <article class="card"><h3>🛡️ Security protection</h3><p>Cloudflare and similar infrastructure services may process technical information and set essential cookies to help protect the site and deliver a secure browsing experience.</p></article>
+          <article class="card"><h3>💡 Privacy approach</h3><p>Search123 aims to reduce unnecessary data collection, avoid intrusive tracking, and be transparent about how it operates and what technical services are involved.</p></article>
+          <article class="card"><h3>📡 Project visibility</h3><p>The source repository is public on <a href="https://github.com/Kaasplank1234/Search123">GitHub</a>. Service status is published on the <a href="https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/">uptime dashboard</a>.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell dark" aria-labelledby="features-title">
+      <div class="content-container">
+        <h2 class="section-title" id="features-title">🚀 Key Features</h2>
+        <div class="cards">
+          <article class="card"><h3>🔒 Privacy-aware design</h3><p>Privacy-conscious defaults and a transparent operational approach help avoid unnecessary collection and profiling where possible.</p></article>
+          <article class="card"><h3>🌐 Metasearch</h3><p>Aggregates results from multiple sources to give a broader overview of the web while remaining simple and usable.</p></article>
+          <article class="card"><h3>⚡ Open-source foundation</h3><p>Powered by the open-source <a href="https://github.com/searxng/searxng" target="_blank" rel="noopener noreferrer">SearXNG</a> platform and maintained in a public GitHub repository.</p></article>
+          <article class="card"><h3>🛡️ Secure delivery</h3><p>Hosting and protection services may process technical metadata and essential cookies as part of secure delivery and abuse prevention.</p></article>
+          <article class="card"><h3>🎨 Clean interface</h3><p>A simple, readable layout with responsive styling, accessible contrast, and a consistent structure across devices.</p></article>
+          <article class="card"><h3>📱 Mobile friendly</h3><p>Designed to remain usable across desktop, tablet, and mobile without unnecessary scripts or heavy dependencies.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell light" aria-labelledby="technical-title">
+      <div class="content-container">
+        <h2 class="section-title" id="technical-title">📊 Technical Overview</h2>
+        <div class="cards">
+          <article class="card"><h3>🔧 Powered by</h3><p><a href="https://github.com/searxng/searxng" target="_blank" rel="noopener noreferrer">SearXNG</a>, an open-source metasearch engine.</p></article>
+          <article class="card"><h3>📜 Licensing</h3><p>Search123 is distributed under the <a href="https://github.com/Kaasplank1234/Search123/blob/main/LICENSE">GNU AGPL-3.0</a>.</p></article>
+          <article class="card"><h3>🌍 Open development</h3><p>The project is openly maintained on <a href="https://github.com/Kaasplank1234/Search123">GitHub</a> and welcomes review and contribution.</p></article>
+          <article class="card"><h3>💾 Data handling</h3><p>Search123 aims to minimize unnecessary data collection. Hosting and security services may process technical information required for safe operation.</p></article>
+          <article class="card"><h3>🛡️ Security services</h3><p>Cloudflare protection can involve essential cookies and technical logs needed to secure the website and reduce abuse.</p></article>
+          <article class="card"><h3>⚙️ Transparency</h3><p>Service status is publicly visible via the <a href="https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/">uptime monitoring dashboard</a>.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="github-section">
+      <div class="github-content">
+        <h2>📖 Open source &amp; transparent</h2>
+        <p>Search123 is an open-source project maintained by Cheesy Studios. The repository is publicly available on GitHub for inspection, contribution, and review.</p>
+        <a href="https://github.com/Kaasplank1234/Search123" class="github-btn">View Search123 on GitHub →</a>
+      </div>
+    </section>
+
+    <section class="recognition-section" aria-labelledby="recognition-title">
+      <h2 class="section-title" id="recognition-title">Cheesy Studios Recognition</h2>
+      <p>Recognition presented by Cheesy Studios for Search123 as a privacy-focused project.</p>
+      <a href="https://search123.dpdns.org" target="_blank" rel="noopener" class="cheesy-cert" aria-label="Search123 — Cheesy Studios Elevated Privacy Certification">
+        <div class="cert-border">
+          <div class="cert-brand">✦ CHEESY STUDIOS ✦</div>
+          <div class="cert-shield" aria-hidden="true">🛡️</div>
+          <div class="cert-title">ELEVATED PRIVACY</div>
+          <div class="cert-title cert-second">CERTIFICATION</div>
+          <div class="cert-line"></div>
+          <div class="cert-recipient">SEARCH123</div>
+          <div class="cert-footer">RECOGNISED PRIVACY-FOCUSED PROJECT</div>
+          <div class="cert-seal">✦ CHEESY STUDIOS RECOGNITION ✦</div>
+        </div>
+      </a>
+      <p class="recognition-disclaimer">This is a recognition by Cheesy Studios, not an independent or government-issued privacy certification.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <h2>Search123</h2>
+      <p>Search123 is hosted by Cheesy Studios and powered by SearXNG.</p>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="https://search123.dpdns.org/">Search</a>
+        <a href="https://github.com/Kaasplank1234/Search123">GitHub Repository</a>
+        <a href="https://github.com/Kaasplank1234/Search123/issues">Issue Tracker</a>
+        <a href="https://hetrixtools.com/r/78a317a660bd198f2b8f1bb286ce62f5/">Uptime Status</a>
+        <a href="https://cheesy-studios.tawk.help/article/hieronder-onze-uitgebreide-privacyverklaring">Privacy Policy</a>
+        <a href="https://github.com/searxng/searxng">SearXNG</a>
+        <a href="https://www.gnu.org/licenses/agpl-3.0.html">GNU AGPL-3.0</a>
+      </nav>
+      <a href="https://www.cheesy-studios.22web.org/homepagina" class="cheesy-studios-btn">💖 Maintained by Cheesy Studios</a>
+      <div class="copyright">
+        <p>&copy; <span id="copyright-year"></span> Cheesy Studios. Search123 is licensed under the <a href="https://github.com/Kaasplank1234/Search123/blob/main/LICENSE">GNU Affero General Public License v3.0 (AGPL-3.0)</a>.</p>
+        <p>Search123 is hosted by Cheesy Studios and powered by <a href="https://github.com/searxng/searxng">SearXNG</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+    const storedTheme = localStorage.getItem('theme');
+    const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    function setTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+      themeToggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+    }
+    setTheme(storedTheme || preferredTheme);
+    themeToggle.addEventListener('click', () => {
+      const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', nextTheme);
+      setTheme(nextTheme);
+    });
+  </script>
+</body>
+</html>
