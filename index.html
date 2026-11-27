@@ -35,6 +35,13 @@
     nav { display:flex; align-items:center; gap:22px; }
     nav a { text-decoration:none; font-size:14px; }
     nav a:hover { color:var(--accent); }
+    .mini-cert { display:inline-flex; align-items:center; gap:7px; min-height:38px; padding:6px 9px; border:1px solid #d6b45b; border-radius:6px; background:#101827; color:#fff; text-decoration:none; box-shadow:0 2px 8px #0002; }
+    .mini-cert:hover,.mini-cert:focus-visible { border-color:#e7c875; box-shadow:0 4px 12px #0004; }
+    .mini-cert:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+    .mini-cert-shield { color:#e7c875; font-size:18px; line-height:1; }
+    .mini-cert-copy { display:flex; flex-direction:column; line-height:1.05; }
+    .mini-cert-brand { color:#e7c875; font-size:7px; font-weight:900; letter-spacing:.8px; }
+    .mini-cert-title { margin-top:3px; color:#fff; font-size:8px; font-weight:900; letter-spacing:.35px; }
     .theme-toggle { width:44px; height:44px; border:2px solid var(--text); border-radius:50%; background:none; color:var(--text); font-size:20px; cursor:pointer; }
     .theme-toggle:hover { background:var(--accent); border-color:var(--accent); color:#fff; }
     main { flex:1; }
@@ -113,6 +120,13 @@
           <a href="https://www.cheesy-studios.22web.org/homepagina">Cheesy Studios</a>
           <a href="https://www.cheesy-studios.22web.org/neem-contact-met-ons-op-faq">Contact</a>
         </nav>
+        <a href="#recognition-title" class="mini-cert" aria-label="Elevated Privacy Certification — view the full recognition">
+          <span class="mini-cert-shield" aria-hidden="true">🛡️</span>
+          <span class="mini-cert-copy">
+            <span class="mini-cert-brand">CHEESY STUDIOS</span>
+            <span class="mini-cert-title">PRIVACY CERTIFIED</span>
+          </span>
+        </a>
         <button class="theme-toggle" id="themeToggle" type="button" title="Toggle dark/light mode" aria-label="Toggle dark or light mode">🌙</button>
       </div>
     </div>
